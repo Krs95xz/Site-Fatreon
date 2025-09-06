@@ -1,0 +1,47 @@
+.pontos{
+    position: absolute;
+    font-size: 30px;
+    user-select: none;
+    display: none;
+    font-family: 'Bruno Ace';
+    font-size: 23px;
+}
+#aplicaFuncoes {
+    text-align: center;
+}
+#conteudo {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(245, 245, 245, 0.881);
+}
+#aviso {
+    margin: 0;
+}
+#aplicaDados {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.dados {
+    display: none;
+}
+#corRastro1, #corRastro2 {
+    height: 25px;
+    margin: 5px;
+}
+#cores {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: none;
+}
+#conteudo > div:nth-child(1) {
+    text-align: center;
+}
+#conteudo > div:nth-child(n + 1) {
+    padding-top: 3px;
+}
+#formatoCaixa {
+    padding-bottom: 5px;
+}

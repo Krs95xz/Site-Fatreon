@@ -1,6 +1,6 @@
 const data = new Date()
 
-var enviar = document.getElementById("botao")
+var enviar = document.getElementById("enviar")
 if (enviar != null) {
     enviar.addEventListener('click', mostrar)
     // enviar.addEventListener('mouseenter', entrar)
@@ -11,7 +11,7 @@ function mostrar() {
     var nome = document.getElementById("email").value
     if (nome != null) {
         var errado = 0
-        if (nome.includes("@gmail.com") || nome.includes("@email.com") || nome.includes("@hotmail.com")) {
+        if (nome.includes("@gmail.com") || nome.includes("@outlook.com") || nome.includes("@hotmail.com")) {
             if (nome[0] != "@") {
                 errado = 1
             } else {
@@ -22,13 +22,16 @@ function mostrar() {
             errado = 0
         }
         if (errado == 1) {
-            if (nome.includes(".") || nome.includes("_")) {
-                var nomeText = nome.substring(0, nome.indexOf(".") || nome.indexOf("_"))
-                nomeText += " " + nome.substring(nome.indexOf(".") + 1 || nome.indexOf("_") + 1, nome.indexOf("@"))
+            if (nome.substring(0, nome.indexOf("@")).includes(".")) {
+                var nomeText = nome.substring(0, nome.indexOf("."))
+            } else if (nome.includes("_")) {
+                var nomeText = nome.substring(0, nome.indexOf("_"))
+            } else {
+                var nomeText = nome.substring(0, nome.indexOf("@"))
             }
             document.getElementById("resposta").textContent = `Olá ${nomeText}! Seja bem-vindo(a)!`
         } else {
-            document.getElementById("resposta").textContent = 'Por favor, coloque o complemento do arroba correto e não coloque espaço no email (Observação: não tente usar email que não seja pessoal)'
+            document.getElementById("resposta").textContent = 'Por favor, coloque o complemento do arroba correto e não coloque espaço no e-mail (Observação: use seu e-mail pessoal)'
         }
     }
 }

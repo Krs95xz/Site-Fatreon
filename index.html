@@ -4,7 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fatreon</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styleHome.css">
+        <link rel="stylesheet" href="styleMouse.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+            rel="stylesheet">
     </head>
     <body>
         <header>
@@ -15,37 +24,87 @@
                 <div id="hora"></div>
             </div>
             <div class="titulo">
-                <div>
-                    <h1 class="fatreon">FATREON</h1>
-                </div>
-                <div></div>
+                <h1 class="fatreon">FATREON</h1>
             </div>
         </header>
         <section>
-            <main>
+            <aside>
+                <div id="conteudo">
+                    <div id="ativar">
+                        <label for class="insercao">Ativar rastro do
+                            mouse?</label>
+                        <input type="checkbox" name id="inputRastro"
+                            placeholder="botaoRastro" onclick="propriedades()">
+                    </div>
+                    <div class="dados" id="quantidade">
+                        <label for class="insercao">Quantidade rastro:</label>
+                        <input type="number" id="qntRastro"
+                            placeholder="Quantidade de caracteres(Rastro)"
+                            value="10">
+                    </div>
+                    <div class="dados" id="formatoCaixa">
+                        <label for class="insercao">Formato rastro:</label>
+                        <input type="text" id="formato" placeholder value="x">
+                    </div>
+                    <div class="dados" id="cores">
+                        <div class="dados">
+                            <label for class="insercao">Cor rastro 1:</label>
+                            <input type="color" id="corRastro1" value="#001aff">
+                        </div>
+                        <div class="dados">
+                            <label for class="insercao">Cor rastro 2:</label>
+                            <input type="color" id="corRastro2" value="#00b3ff">
+                        </div>
+                    </div>
+                    <div class="dados" id="aplicaFuncoes">
+                        <button id="aplicaDados"
+                            onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
+                        <p id="aviso">Aplique sempre, a cada mudança. (mudança
+                            de cor não é necessário)</p>
+                    </div>
+                </div>
+            </aside>
+            <main id="principal">
                 <h3>Sobre mim</h3>
+                <hr>
                 <p>Meu nome é Kauã, sou aluno da Escola Germinare TECH do
                     Instituto J&F, Estou no 1º ano do ensino médio quando fiz
-                    este site.<br>Gosto muito de programação, me faz sentir
-                    feliz com o que eu faço, além de testar e treinar meu
+                    este site.
+                </p>
+                <hr>
+                <p>Gosto muito de programação, explorar e
+                    treinar meu
                     raciocínio lógico. Gosto de jogar jogos de videogame,
-                    assitir anime, ouvir música de rap-geek.<br>Sempre tive
-                    vontade de querer fazer jogos, mas não sabia programar.
-                    Antes de entrar na Germinare eu tentei fazer um jogo na
-                    Unity que disponibiliza apenas <code>C#</code> como
-                    linguagem de programação, com ajuda do
-                    ChatGPT, mas era muito complexo certas funções e algumas
-                    interfaces, o bom é que aprendi bastante alguns fundamentos
-                    mesmo sem
-                    saber programar.<br>No curso de Python, aprendi a lógica de
-                    programação, o que ajuda bastante para qualquer linguagem.
-                    Depois disso parei de utilizar a Unity por um tempo, e fui
+                    assitir anime, ouvir música de rap-geek.
+                </p>
+                <hr>
+                <p>Sempre tive
+                    vontade de querer fazer jogos, mas não sabia programar nem
+                    lógica de programação.
+                    Antes de entrar na Germinare tentei fazer um jogo na
+                    Unity com ajuda do ChatGPT, que disponibiliza apenas
+                    <code>C#</code> como linguagem de programação, mas era muito
+                    complexo algumas funções
+                    e interfaces, o lado positivo foi o aprendizado de funções
+                    básicas de componentes de um jogo.
+                </p>
+                <hr>
+                <p>
+                    No curso de Python, aprendi a lógica de
+                    programação, o que ajudou muito para qualquer linguagem.
+                    Depois disso parei de utilizar a Unity por um tempo, e mudei
                     para o GameMaker que tinha uma linguagem de programação
                     própria, mas com ferramentas que facilitava o uso, além de
-                    estar em português. A linguagem de certo modo era uma
-                    mistura de JavaScript, com Python.<br>Com as aulas de POO
-                    (Programação orientada a objeto) melhorei muitos conceitos
-                    de objetos no geral, principalmente nos objetos do jogo.</p>
+                    estar em português. A linguagem era parecida com a
+                    combinação
+                    de JavaScript, com Python.
+                </p>
+                <hr>
+                <p>Com as aulas de POO (Programação orientada a objeto)
+                    melhorei muito a organização de funções no jogo,
+                    principalmente para otimizar o jogo.
+                </p>
+                <hr>
                 <br>
                 <h3>Sobre o que eu sei</h3>
                 <ol>
@@ -63,34 +122,28 @@
                     <li>Entendi melhor algumas propriedades do HTML nas
                         tags.</li>
                     <li>Aprendi propriedades no CSS como: <br><code>display:
-                            flex/inline/block</code> <code>padding</code>
+                        flex/inline/block/grid/inline-block</code> <code>padding</code>
                         <code>margin</code> <code>font-family</code>
-                        <code>bottom</code> <code>position</code>
+                        <code>bottom/top/left/right</code> <code>position</code>
                         <code>box-shadow/border/border-radius</code>
                         <code>transition</code></li>
                     <li>Descubri que existe maneiras de criar animação sem
                         JavaScript usando <code>@keyframes "nome"</code> e
                         colocar <code>animation</code> na tag desejada.</li>
-                    <li>Também estou estudando Java, Programação orientado a
-                        objeto, SQL, e um pouco de JavaScript.</li>
-                    <li>Aprendi a propriedade de <code>grid</code> no CSS, que
-                        facilita a separação de conteúdos em blocos. Como este
-                        site, que utiliza <code>grid</code> para deixar dinâmico
-                        de acordo com o tamanho da janela do navegador</li>
+                    <li>Também estou estudando Java, POO (Programação orientado a
+                        objeto), SQL, HTML e CSS, Linux, UX (user experience) e um pouco de JavaScript.</li>
                 </ol>
-                <input type="email" name id="email"
+                <label for>Email: </label><input type="email" name id="email"
                     placeholder="Digite seu email">
-                <button id="botao">Enviar</button>
+                <button id="enviar">Enviar</button>
                 <p id="resposta"></p>
-                <p>(Isso é apenas um teste, nenhum dado será coletado neste site)</p>
+                <p>(Isso é apenas um teste, nenhum dado será coletado neste
+                    site)</p>
             </main>
-            <aside>
-                <h3>Menu lateral</h3>
-                <div id="b1" class="lateral"></div>
-            </aside>
         </section>
         <footer>&copy; Todos os direitos reservados ao site Fatreon (de Krs95xz)
             &copy;</footer>
-        <script src="script.js"></script>
+        <script src="funcoes.js"></script>
+        <script src="mouse.js"></script>
     </body>
 </html>
