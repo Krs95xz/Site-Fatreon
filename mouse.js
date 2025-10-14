@@ -55,8 +55,8 @@ var x = 0;
 var y = 0;
 var c1 = 0;
 function valores(event) {
-    x = event.pageX - 7;
-    y = event.pageY - 20;
+    x = event.pageX - 9;
+    y = event.pageY;
     for (var k = 0; k < pontos.length; k++) {
         pontos[k].style.display = "block";
     }

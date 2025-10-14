@@ -1,31 +1,41 @@
+:root {
+    --corAzul: rgb(58, 144, 255);
+    --corLaranja: rgb(255, 132, 0);
+}
+
 body {
     background-color: rgb(0, 0, 0);
     margin: 0;
     padding: 0;
     top: 0;
     font-family: 'Montserrat';
-    animation: Transicao 2.5s;
+    animation: Transicao 1s;
 }
 html, body {
-    width: 100%;
+    width: 100dvw;
+    height: 100dvh;
+}
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+    display: none;
 }
 h1 {
     font-family: "Bruno Ace";
 }
-footer {
-    width: 99.7%;
-    text-align: center;
-}
 header, footer {
     border: 3px solid rgb(24, 132, 255);
     color: white;
+    text-align: center;
 }
 h1 {
     text-align: center;
+    font-size: 30px;
+    transition: 1s;
 }
 header {
     display: flex;
     gap: 28%;
+    transition: 1s;
+    border-radius: 0px 0px 20px 20px;
 }
 code {
     background-color: #eef;
@@ -39,23 +49,33 @@ ol, li {
 ol {
     padding-left: 20px;
 }
+input {
+    border-radius: 10px;
+    height: 20px;
+}
 main {
     background-color: rgb(255, 255, 255);
     padding: 30px;
     color: black;
-    width: 80%;
+    width: 80dvw;
     margin: 0 auto;
     box-shadow: 0 0 15px rgba(245, 245, 245, 0.881);
-    border-radius: 10px;
+    border-radius: 100px 0px 0px 100px;
+    transition: 1s;
+    animation: mover 1.5s;
 }
 section {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: grid;
-    grid-template-columns: 1fr 8fr;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    gap: 10%;
+    transition: 1s;
 }
 p {
     text-align: left;
+}
+#informaçoes {
+    font-size: 14px;
 }
 button {
     border-radius: 10px;
@@ -73,10 +93,10 @@ button:hover {
     transition: 1s;
 }
 #email:invalid {
-    border: 3px solid rgb(255, 0, 0);
+    border: 3px solid var(--corLaranja);
 }
 #email:valid {
-    border: 3px solid green;
+    border: 3px solid var(--corAzul);
 }
 .titulo {
     display: grid;
@@ -84,6 +104,18 @@ button:hover {
 }
 label {
     color: black;
+}
+@media (max-width: 735px) {
+    header {
+        gap: 13%;
+        transition: 1s;
+    }
+}
+@media (max-width: 635px) {
+    header {
+        gap: 8%;
+        transition: 1s;
+    }
 }
 @keyframes Transicao {
     from {
@@ -111,5 +143,12 @@ label {
     to {
         width: 600px;
         padding: 3px;
+    }
+}
+@keyframes mover {
+    from {
+        margin-left: 100dvw;
+    } to {
+        margin-left: 0;
     }
 }
