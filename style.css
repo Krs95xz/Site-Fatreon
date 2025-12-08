@@ -1,6 +1,7 @@
 :root {
     --corAzul: rgb(58, 144, 255);
     --corLaranja: rgb(255, 132, 0);
+    --corCinza: rgb(39, 39, 39);
 }
 
 body {
@@ -14,6 +15,7 @@ body {
 html, body {
     width: 100dvw;
     height: 100dvh;
+    scroll-behavior: smooth;
 }
 body::-webkit-scrollbar, html::-webkit-scrollbar {
     display: none;
@@ -22,7 +24,8 @@ h1 {
     font-family: "Bruno Ace";
 }
 header, footer {
-    border: 3px solid rgb(24, 132, 255);
+    border-top: 3px solid rgb(24, 132, 255);
+    border-bottom: 3px solid rgb(24, 132, 255);
     color: white;
     text-align: center;
 }
@@ -32,13 +35,47 @@ h1 {
     transition: 1s;
 }
 header {
+    background-color: black;
+    width: 100dvw;
+    position: fixed;
     display: flex;
     gap: 28%;
     transition: 1s;
-    border-radius: 0px 0px 20px 20px;
+    padding: 5px;
+    margin: 0;
+    padding-bottom: 0;
+    padding-right: 5px;
+    padding-left: 5px;
+    top: 0;
+    z-index: 1;
+}
+aside {
+    width: 25dvw;
+    background-color: var(--corCinza);
+    padding: 10px;
+    border-right: 3px solid var(--corAzul);
+    font-size: 0.9em;
+    color: white;
+}
+aside input, aside label {
+    color: white;
+}
+aside > div:nth-child(n) {
+    margin-top: 15px;
+}
+#aplicaFuncoes {
+    text-align: center;
+}
+#inputRastro {
+    margin-top: 5px;
+    width: 20px;
+}
+#principal {
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 code {
-    background-color: #eef;
+    background-color: rgb(216, 246, 255);
     padding: 2px 6px;
     border-radius: 4px;
     font-family: monospace;
@@ -53,7 +90,7 @@ input {
     border-radius: 10px;
     height: 20px;
 }
-main {
+section {
     background-color: rgb(255, 255, 255);
     padding: 30px;
     color: black;
@@ -62,35 +99,36 @@ main {
     box-shadow: 0 0 15px rgba(245, 245, 245, 0.881);
     border-radius: 100px 0px 0px 100px;
     transition: 1s;
-    animation: mover 1.5s;
+    animation: mover 5s;
 }
-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
+main {
+    margin-top: 86px;
     display: flex;
     gap: 10%;
     transition: 1s;
+    container-type: normal;
 }
 p {
     text-align: left;
 }
-#informaçoes {
+#informacoes {
     font-size: 14px;
+    transition: 1s;
 }
 button {
     border-radius: 10px;
-    background-color: rgb(58, 144, 255);
-    border: 2px solid rgb(58, 144, 255);
+    background-color: var(--corAzul);
+    border: 2px solid var(--corAzul);
     color: white;
     height: 30px;
-}
-button:active {
-    background-color: rgb(40, 90, 156);
-    border: 2px solid rgb(40, 90, 156);
+    width: 100px;
 }
 button:hover {
     transform: scale(1.10);
-    transition: 1s;
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+    border: 2px solid var(--corLaranja);
 }
 #email:invalid {
     border: 3px solid var(--corLaranja);
@@ -99,11 +137,26 @@ button:hover {
     border: 3px solid var(--corAzul);
 }
 .titulo {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    transition: 1s;
 }
 label {
     color: black;
+}
+#conteudo > input {
+    position: relative;
+    top: 4px;
+}
+.dados > input {
+    width: 100px;
+    background-color: transparent;
+    border: 2px solid black;
+    padding: 2px;
+}
+.dados > div > input {
+    background-color: transparent;
+    width: 100px;
+    border: 0;
+    padding: 0;
 }
 @media (max-width: 735px) {
     header {
@@ -147,8 +200,9 @@ label {
 }
 @keyframes mover {
     from {
-        margin-left: 100dvw;
-    } to {
-        margin-left: 0;
+        width: 5%;
+    }
+    to {
+        width: 80%;
     }
 }

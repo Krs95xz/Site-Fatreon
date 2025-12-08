@@ -137,3 +137,25 @@ function mudar_back() {
 
 mudar_back();
 setInterval(mudar_back, 9000)
+
+var textos = document.getElementsByClassName("textos");
+function separar(elemento) {
+    for (let i=0; i < textos.length; i++) {
+        var chars = Array.from(elemento.textContent)
+        elemento.textContent = ""
+        chars.forEach(char => {
+            var span = document.createElement("span");
+            span.classList.add("letras");
+            span.textContent = char;
+            elemento.appendChild(span);
+        });
+    }
+}
+separar(textos)
+var letras = document.getElementsByClassName("letras")
+document.addEventListener("mouseenter", letras => {
+    for (let i=0; i < letras.length; i++) {
+        letras[i].style.marginBottom = "7px"
+        letras[i].style.transition = "0.5s"
+    }
+})

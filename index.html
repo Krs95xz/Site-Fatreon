@@ -4,20 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fatreon</title>
-        <link rel="stylesheet" href="styleHome.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="styleMouse.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap"
-            rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-            rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
-            <div id="informaçoes">
+            <div id="informacoes">
                 <div id="diaSem"></div>
                 <div id="dia"></div>
                 <div id="periodo"></div>
@@ -27,58 +24,50 @@
                 <h1 class="fatreon">FATREON</h1>
             </div>
         </header>
-        <section>
-            <aside>
-                <div id="conteudo">
-                    <div id="ativar">
-                        <label for class="insercao">Ativar rastro do
-                            mouse?</label>
-                        <input type="checkbox" name id="inputRastro"
-                            placeholder="botaoRastro" onclick="propriedades()">
+        <main>
+            <aside id="conteudo">
+                <label for class="insercao">Ativar rastro do mouse?</label>
+                <input type="checkbox" name id="inputRastro">
+                <div class="dados" id="quantidade">
+                    <label for class="insercao">Quantidade rastro:</label>
+                    <input type="number" id="qntRastro" placeholder="Quantidade de caracteres(Rastro)" value="10" min="0" max="100">
+                </div>
+                <div class="dados" id="formatoCaixa">
+                    <label for class="insercao">Formato rastro:</label>
+                    <input type="text" id="formato" placeholder value="X">
+                </div>
+                <div class="dados" id="cores">
+                    <div>
+                        <label for class="insercao">Cor rastro 1:</label>
+                        <input type="color" id="corRastro1" value="#3a90ff">
                     </div>
-                    <div class="dados" id="quantidade">
-                        <label for class="insercao">Quantidade rastro:</label>
-                        <input type="number" id="qntRastro"
-                            placeholder="Quantidade de caracteres(Rastro)"
-                            value="10">
-                    </div>
-                    <div class="dados" id="formatoCaixa">
-                        <label for class="insercao">Formato rastro:</label>
-                        <input type="text" id="formato" placeholder value="x">
-                    </div>
-                    <div class="dados" id="cores">
-                        <div class="dados">
-                            <label for class="insercao">Cor rastro 1:</label>
-                            <input type="color" id="corRastro1" value="#001aff">
-                        </div>
-                        <div class="dados">
-                            <label for class="insercao">Cor rastro 2:</label>
-                            <input type="color" id="corRastro2" value="#00b3ff">
-                        </div>
-                    </div>
-                    <div class="dados" id="aplicaFuncoes">
-                        <button id="aplicaDados"
-                            onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
-                        <p id="aviso">Aplique sempre, a cada mudança. (mudança
-                            de cor não é necessário)</p>
+                    <div>
+                        <label for class="insercao">Cor rastro 2:</label>
+                        <input type="color" id="corRastro2" value="#ff8400">
                     </div>
                 </div>
+                <div class="dados" id="aplicaFuncoes">
+                    <button id="aplicaDados"
+                        onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
+                    <p id="aviso">Aplique sempre, a cada mudança. (mudança
+                        de cor não é necessário)</p>
+                </div>
             </aside>
-            <main id="principal">
+            <section id="principal">
                 <h3>Sobre mim</h3>
                 <hr>
-                <p>Meu nome é Kauã, sou aluno da Escola Germinare TECH do
+                <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do
                     Instituto J&F, Estou no 1º ano do ensino médio quando fiz
                     este site.
                 </p>
                 <hr>
-                <p>Gosto muito de programação, explorar e
+                <p class="textos">Gosto muito de programação, explorar e
                     treinar meu
-                    raciocínio lógico. Gosto de jogar jogos de videogame,
+                    raciocínio lógico, gosto de jogar jogos de videogame,
                     assitir anime, ouvir música de rap-geek.
                 </p>
                 <hr>
-                <p>Sempre tive
+                <p class="textos">Sempre tive
                     vontade de querer fazer jogos, mas não sabia programar nem
                     lógica de programação.
                     Antes de entrar na Germinare tentei fazer um jogo na
@@ -89,7 +78,7 @@
                     básicas de componentes de um jogo.
                 </p>
                 <hr>
-                <p>
+                <p class="textos">
                     No curso de Python, aprendi a lógica de
                     programação, o que ajudou muito para qualquer linguagem.
                     Depois disso parei de utilizar a Unity por um tempo, e mudei
@@ -100,7 +89,7 @@
                     de JavaScript, com Python.
                 </p>
                 <hr>
-                <p>Com as aulas de POO (Programação orientada a objeto)
+                <p class="textos">Com as aulas de POO (Programação orientada a objeto)
                     melhorei muito a organização de funções no jogo,
                     principalmente para otimizar o jogo.
                 </p>
@@ -133,15 +122,13 @@
                     <li>Também estou estudando Java, POO (Programação orientado a
                         objeto), SQL, HTML e CSS, Linux, UX (user experience) e um pouco de JavaScript.</li>
                 </ol>
-                <form action="#">
-                    <input type="email" name id="email" placeholder="E-mail">
-                    <button type="submit" id="enviar">Enviar</button>  
-                </form>
+                <input type="email" name id="email" placeholder="E-mail">
+                <button type="submit" id="enviar">Enviar</button>  
                 <p id="resposta"></p>
-                <p>(Isso é apenas um teste, nenhum dado será coletado neste
+                <p class="textos">(Isso é apenas um teste, nenhum dado será coletado neste
                     site)</p>
-            </main>
-        </section>
+            </section>
+        </main>
         <footer>&copy; Todos os direitos reservados ao site Fatreon (de Krs95xz)
             &copy;</footer>
         <script src="funcoes.js"></script>

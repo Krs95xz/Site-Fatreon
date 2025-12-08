@@ -3,46 +3,16 @@
     font-size: 30px;
     user-select: none;
     display: none;
-    font-family: 'Bruno Ace';
-    font-size: 23px;
+    font-family: 'Space Mono';
+    font-size: 25px;
 }
-#aplicaFuncoes {
-    text-align: center;
+:not(#inputRastro:checked) ~ .dados {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s;
 }
-#conteudo {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 15px rgba(245, 245, 245, 0.881);
-    transition: 0.5s;
-}
-#aviso {
-    margin: 0;
-}
-#aplicaDados {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.dados {
-    display: none;
-}
-#corRastro1, #corRastro2 {
-    height: 25px;
-    margin: 5px;
-}
-#cores {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgb(24, 132, 255);
-    border-radius: 10px;
-    display: none;
-}
-#conteudo > div:nth-child(1) {
-    text-align: center;
-}
-#conteudo > div:nth-child(n + 1) {
-    padding-top: 3px;
-}
-#formatoCaixa {
-    padding-bottom: 5px;
+#inputRastro:checked ~ .dados {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.7s;
 }

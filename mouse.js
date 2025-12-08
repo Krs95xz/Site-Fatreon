@@ -13,14 +13,6 @@ conteudo.addEventListener("mousemove", () => {
 conteudo.addEventListener("mouseleave", () => {
     disparoDiv = true;
 })
-function propriedades() {
-    if (ativaRastro.checked == true) {
-        ativar();
-    }
-    else {
-        desativar();
-    }
-}
 setInterval(() => {
     if (ativaRastro.checked == true && disparoDiv) {
         document.addEventListener("mousemove", valores);
@@ -55,7 +47,7 @@ var x = 0;
 var y = 0;
 var c1 = 0;
 function valores(event) {
-    x = event.pageX - 9;
+    x = event.pageX;
     y = event.pageY;
     for (var k = 0; k < pontos.length; k++) {
         pontos[k].style.display = "block";
@@ -92,16 +84,6 @@ setInterval(parar, 200)
 function paraInsercao() {
     for (let r = 0; r < pontos.length; r++) {
         pontos[r].style.display = "none";
-    }
-}
-function ativar() {
-    for(let z = 0; z < dados.length; z++) {
-        dados[z].style.display = "block"
-    }
-}
-function desativar() {
-    for(let z = 0; z < dados.length; z++) {
-        dados[z].style.display = "none"
     }
 }
 function colocarRastro(valor) {
