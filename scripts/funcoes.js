@@ -1,23 +1,34 @@
 const data = new Date()
 
 function abrirToll(toll, aside) {
+    var principal = document.getElementById("principal")
     if (toll.style.visibility === "visible") {
         toll.style.visibility = "hidden"
         toll.style.opacity = "0"
         toll.style.transition = "0.5s"
+        aside.style.flex = "1"
         aside.style.width = "50px"
+        principal.style.flex = "29"
+        principal.style.transition = "0.5s"
     } else {
         toll.style.visibility = "visible"
         toll.style.opacity = "1"
         toll.style.transition = "0.5s"
-        aside.style.width = "40dvw"
+        aside.style.flex = "2"
+        aside.style.width = "100%"
+        principal.style.flex = "3"
+        principal.style.transition = "0.5s"
     }
 }
 function fecharToll(toll, aside) {
+    var principal = document.getElementById("principal")
     toll.style.visibility = "hidden"
     toll.style.opacity = "0"
     toll.style.transition = "0.5s"
+    aside.style.flex = "1"
     aside.style.width = "50px"
+    principal.style.flex = "29"
+    principal.style.transition = "0.5s"
 }
 function alterarFundo(valor) {
     var fundo = document.getElementById("sobre")

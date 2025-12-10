@@ -1,7 +1,12 @@
 ativaRastro = document.getElementById("inputRastro");
 corRastro1 = document.getElementById("corRastro1");
-corRastro2 = document.getElementById("corRastro2")
-dados = document.getElementsByClassName("dados");
+corRastro2 = document.getElementById("corRastro2");
+corRastro1.addEventListener("input", () => {
+    document.getElementById("cor1").style.background = corRastro1.value;
+});
+corRastro2.addEventListener("input", () => {
+    document.getElementById("cor2").style.background = corRastro2.value;
+});
 var disparoDiv = false;
 conteudo = document.getElementById("conteudo");
 conteudo.addEventListener("mouseenter", () => {

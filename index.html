@@ -33,7 +33,7 @@
                 <div id="configuracoesMouse" class="configuracoes">
                     <div class="ativacao">
                         <h4 class="insercao">Ativar rastro do mouse?</h4>
-                        <input type="checkbox" name="ativarConfig" id="inputRastro" class="" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">
+                        <input type="checkbox" name="ativarConfig" id="inputRastro" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">
                     </div>
                     <div class="bloco">
                         <div class="dados" id="quantidade">
@@ -44,17 +44,21 @@
                             <label for class="insercao">Formato rastro:</label>
                             <input type="text" id="formato" class="inputsMouse" value="X" style="font-style: monospace;">
                         </div>
-                        <div class="dados" id="cores">
-                            <div class="blocoCores">
+                        <div class="dadosCores" id="cores">
+                            <div class="boxColor">
                                 <label for class="insercao">Cor rastro 1:</label>
-                                <input type="color" id="corRastro1" class="inputsMouse" value="#ff8400">
+                                <label class="blocoCores" id="cor1">
+                                    <input type="color" id="corRastro1" value="#ff8400">
+                                </label>
                             </div>
-                            <div class="blocoCores">
+                            <div class="boxColor" style="margin-right: 5px;">
                                 <label for class="insercao">Cor rastro 2:</label>
-                                <input type="color" id="corRastro2" class="inputsMouse" value="#ff8400">
+                                <label class="blocoCores" id="cor2">
+                                    <input type="color" id="corRastro2" value="#ff8400">
+                                </label>
                             </div>
                         </div>
-                        <div id="buttonRastro" class="dados">
+                        <div id="buttonRastro">
                             <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
                         </div>
                         <p id="aviso">Aplique sempre, a cada mudança. (mudança
@@ -63,7 +67,7 @@
                 </div>
             </aside>
             <div id="principal">
-                <input type="range" id="opacidadeFundo" min="0.6" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                <input type="range" id="opacidadeFundo" min="0.5" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
                 <section id="sobre">
                     <h3>Sobre mim</h3>
                     <hr>
