@@ -1,5 +1,29 @@
 const data = new Date()
 
+function abrirToll(toll, aside) {
+    if (toll.style.visibility === "visible") {
+        toll.style.visibility = "hidden"
+        toll.style.opacity = "0"
+        toll.style.transition = "0.5s"
+        aside.style.width = "50px"
+    } else {
+        toll.style.visibility = "visible"
+        toll.style.opacity = "1"
+        toll.style.transition = "0.5s"
+        aside.style.width = "40dvw"
+    }
+}
+function fecharToll(toll, aside) {
+    toll.style.visibility = "hidden"
+    toll.style.opacity = "0"
+    toll.style.transition = "0.5s"
+    aside.style.width = "50px"
+}
+function alterarFundo(valor) {
+    var fundo = document.getElementById("sobre")
+    fundo.style.opacity = valor
+}
+
 var enviar = document.getElementById("enviar")
 if (enviar != null) {
     enviar.addEventListener('click', mostrar)
@@ -37,71 +61,14 @@ function mostrar() {
 }
 
 var diaSem = data.getDay()
-switch(diaSem) {
-    case 0:
-        document.getElementById("diaSem").textContent = "Domingo"
-        break
-    case 1:
-        document.getElementById("diaSem").textContent = "Segunda-feira"
-        break
-    case 2:
-        document.getElementById("diaSem").textContent = "Terça-feira"
-        break
-    case 3:
-        document.getElementById("diaSem").textContent = "Quarta-feira"
-        break
-    case 4:
-        document.getElementById("diaSem").textContent = "Quinta-feira"
-        break
-    case 5:
-        document.getElementById("diaSem").textContent = "Sexta-feira"
-        break
-    case 6:
-        document.getElementById("diaSem").textContent = "Sábado"
-        break
-}
+const diasSem = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
+document.getElementById("diaSem").textContent = diasSem[diaSem]
 
 var dia = data.getDate()
 var mes = data.getMonth()
 var ano = data.getFullYear()
-switch(mes) {
-    case 0:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Janeiro | Ano: ${ano}`
-        break
-    case 1:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Fevereiro | Ano: ${ano}`
-        break
-    case 2:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Março | Ano: ${ano}`
-        break
-    case 3:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Abril | Ano: ${ano}`
-        break
-    case 4:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Maio | Ano: ${ano}`
-        break
-    case 5:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Junho | Ano: ${ano}`
-        break
-    case 6:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Julho | Ano: ${ano}`
-        break
-    case 7:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Agosto | Ano: ${ano}`
-        break
-    case 8:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Setembro | Ano: ${ano}`
-        break
-    case 9:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Outubro | Ano: ${ano}`
-        break
-    case 10:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Novembro | Ano: ${ano}`
-        break
-    case 11:
-        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: Dezembro | Ano: ${ano}`
-        break
-}
+const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`
 
 function horario() {
     var data_h = new Date()
@@ -139,19 +106,20 @@ mudar_back();
 setInterval(mudar_back, 9000)
 
 var textos = document.getElementsByClassName("textos");
-function separar(elemento) {
-    for (let i=0; i < textos.length; i++) {
-        var chars = Array.from(elemento.textContent)
-        elemento.textContent = ""
+function separar(elementos) {
+    for (let el of elementos) {
+        const chars = [...el.textContent];
+        el.innerHTML = "";
         chars.forEach(char => {
-            var span = document.createElement("span");
-            span.classList.add("letras");
+            const span = document.createElement("span");
+            span.className = "letras";
             span.textContent = char;
-            elemento.appendChild(span);
+            el.appendChild(span);
         });
     }
 }
 separar(textos)
+
 var letras = document.getElementsByClassName("letras")
 document.addEventListener("mouseenter", letras => {
     for (let i=0; i < letras.length; i++) {

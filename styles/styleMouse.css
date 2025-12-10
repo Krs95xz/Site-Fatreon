@@ -1,0 +1,9 @@
+.pontos{
+    position: absolute;
+    user-select: none;
+    font-weight: 100;
+    display: none;
+    font-family: 'Bitcount Prop Single';
+    font-size: 35px;
+    z-index: 2;
+}

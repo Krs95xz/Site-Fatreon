@@ -39,7 +39,7 @@ header {
     width: 100dvw;
     position: fixed;
     display: flex;
-    gap: 28%;
+    gap: 34%;
     transition: 1s;
     padding: 5px;
     margin: 0;
@@ -50,29 +50,140 @@ header {
     z-index: 1;
 }
 aside {
-    width: 25dvw;
+    width: 50px;
     background-color: var(--corCinza);
     padding: 10px;
     border-right: 3px solid var(--corAzul);
     font-size: 0.9em;
     color: white;
+    transition: 0.5s;
+}
+.topicFerramenta {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 40px;
+    margin-top: 5px;
+    margin-left: 6px;
+    margin-bottom: 10px;
+}
+.configuracoes {
+    padding: 10px;
+    border: 2px solid white;
+    margin: 0;
+    margin-left: 4px;
+    margin-right: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    height: auto;
+    width: auto;
 }
 aside input, aside label {
     color: white;
 }
-aside > div:nth-child(n) {
-    margin-top: 15px;
+:not(#inputRastro:checked) .bloco {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s;
 }
-#aplicaFuncoes {
+:has(#inputRastro:checked) .bloco {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.7s;
+}
+.bloco {
+    margin: auto;
+    padding: 0;
+}
+input[type="color"] {
+    appearance: none;
+} 
+.ativacao {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.ativacao h4 {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+}
+.dados {
+    width: 100%;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+.inputsMouse {
+    width: 300px;
+}
+#buttonRastro {
     text-align: center;
 }
+#fechar {
+    display: block;
+    font-size: large;
+    width: 40px;
+}
 #inputRastro {
-    margin-top: 5px;
-    width: 20px;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url("../assets/icon/iconNegative.png");
+    background-color: white;
+    border: 2px solid var(--corLaranja);
+    margin-left: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+#inputRastro:checked {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url("../assets/icon/iconConfirm.png");
+    background-color: white;
 }
 #principal {
+    display: flex;
+    flex-direction: column;
+}
+#sobre {
+    margin-right: 0;
     margin-top: 15px;
     margin-bottom: 15px;
+    width: 100%;
+}
+#sobre p, #sobre li {
+    margin-right: 40px;
+}
+#opacidadeFundo {
+    appearance: none;
+    background-color: transparent;
+    width: 150px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: auto;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 1px;
+    background-color: var(--corCinza);
+    border-radius: 10px;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -7px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--corLaranja);
+    border-radius: 50%;
+    cursor: pointer;
 }
 code {
     background-color: rgb(216, 246, 255);
@@ -85,10 +196,6 @@ ol, li {
 }
 ol {
     padding-left: 20px;
-}
-input {
-    border-radius: 10px;
-    height: 20px;
 }
 section {
     background-color: rgb(255, 255, 255);
@@ -115,7 +222,7 @@ p {
     font-size: 14px;
     transition: 1s;
 }
-button {
+.confirmacao {
     border-radius: 10px;
     background-color: var(--corAzul);
     border: 2px solid var(--corAzul);
@@ -123,7 +230,7 @@ button {
     height: 30px;
     width: 100px;
 }
-button:hover {
+.confirmacao:hover {
     transform: scale(1.10);
     transition: 0.5s;
     background-color: white;
@@ -142,15 +249,12 @@ button:hover {
 label {
     color: black;
 }
-#conteudo > input {
-    position: relative;
-    top: 4px;
-}
 .dados > input {
-    width: 100px;
+    width: 50%;
     background-color: transparent;
     border: 2px solid black;
     padding: 2px;
+    margin-right: 0;
 }
 .dados > div > input {
     background-color: transparent;
@@ -203,6 +307,6 @@ label {
         width: 5%;
     }
     to {
-        width: 80%;
+        width: 100%;
     }
 }

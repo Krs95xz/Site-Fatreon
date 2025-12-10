@@ -4,13 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Fatreon</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="styleMouse.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/styleMouse.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single&display=swap" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -25,113 +26,120 @@
             </div>
         </header>
         <main>
-            <aside id="conteudo">
-                <label for class="insercao">Ativar rastro do mouse?</label>
-                <input type="checkbox" name id="inputRastro">
-                <div class="dados" id="quantidade">
-                    <label for class="insercao">Quantidade rastro:</label>
-                    <input type="number" id="qntRastro" placeholder="Quantidade de caracteres(Rastro)" value="10" min="0" max="100">
+            <aside id="conteudo" onmouseleave="fecharToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo'))">
+                <div id="secao">
+                    <img src="assets/icon/iconMouse.png" alt="" class="topicFerramenta" onclick="abrirToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo'))">
                 </div>
-                <div class="dados" id="formatoCaixa">
-                    <label for class="insercao">Formato rastro:</label>
-                    <input type="text" id="formato" placeholder value="X">
-                </div>
-                <div class="dados" id="cores">
-                    <div>
-                        <label for class="insercao">Cor rastro 1:</label>
-                        <input type="color" id="corRastro1" value="#3a90ff">
+                <div id="configuracoesMouse" class="configuracoes">
+                    <div class="ativacao">
+                        <h4 class="insercao">Ativar rastro do mouse?</h4>
+                        <input type="checkbox" name="ativarConfig" id="inputRastro" class="" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">
                     </div>
-                    <div>
-                        <label for class="insercao">Cor rastro 2:</label>
-                        <input type="color" id="corRastro2" value="#ff8400">
+                    <div class="bloco">
+                        <div class="dados" id="quantidade">
+                            <label for class="insercao">Quantidade rastro:</label>
+                            <input type="number" id="qntRastro" class="inputsMouse" placeholder="Quantidade de caracteres(Rastro)" value="10" min="0" max="100">
+                        </div>
+                        <div class="dados" id="formatoCaixa">
+                            <label for class="insercao">Formato rastro:</label>
+                            <input type="text" id="formato" class="inputsMouse" value="X" style="font-style: monospace;">
+                        </div>
+                        <div class="dados" id="cores">
+                            <div class="blocoCores">
+                                <label for class="insercao">Cor rastro 1:</label>
+                                <input type="color" id="corRastro1" class="inputsMouse" value="#ff8400">
+                            </div>
+                            <div class="blocoCores">
+                                <label for class="insercao">Cor rastro 2:</label>
+                                <input type="color" id="corRastro2" class="inputsMouse" value="#ff8400">
+                            </div>
+                        </div>
+                        <div id="buttonRastro" class="dados">
+                            <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
+                        </div>
+                        <p id="aviso">Aplique sempre, a cada mudança. (mudança
+                            de cor não é necessário)</p>
                     </div>
-                </div>
-                <div class="dados" id="aplicaFuncoes">
-                    <button id="aplicaDados"
-                        onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
-                    <p id="aviso">Aplique sempre, a cada mudança. (mudança
-                        de cor não é necessário)</p>
                 </div>
             </aside>
-            <section id="principal">
-                <h3>Sobre mim</h3>
-                <hr>
-                <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do
-                    Instituto J&F, Estou no 1º ano do ensino médio quando fiz
-                    este site.
-                </p>
-                <hr>
-                <p class="textos">Gosto muito de programação, explorar e
-                    treinar meu
-                    raciocínio lógico, gosto de jogar jogos de videogame,
-                    assitir anime, ouvir música de rap-geek.
-                </p>
-                <hr>
-                <p class="textos">Sempre tive
-                    vontade de querer fazer jogos, mas não sabia programar nem
-                    lógica de programação.
-                    Antes de entrar na Germinare tentei fazer um jogo na
-                    Unity com ajuda do ChatGPT, que disponibiliza apenas
-                    <code>C#</code> como linguagem de programação, mas era muito
-                    complexo algumas funções
-                    e interfaces, o lado positivo foi o aprendizado de funções
-                    básicas de componentes de um jogo.
-                </p>
-                <hr>
-                <p class="textos">
-                    No curso de Python, aprendi a lógica de
-                    programação, o que ajudou muito para qualquer linguagem.
-                    Depois disso parei de utilizar a Unity por um tempo, e mudei
-                    para o GameMaker que tinha uma linguagem de programação
-                    própria, mas com ferramentas que facilitava o uso, além de
-                    estar em português. A linguagem é parecida com a
-                    combinação
-                    de JavaScript, com Python.
-                </p>
-                <hr>
-                <p class="textos">Com as aulas de POO (Programação orientada a objeto)
-                    melhorei muito a organização de funções no jogo,
-                    principalmente para otimizar o jogo.
-                </p>
-                <hr>
-                <br>
-                <h3>Sobre o que eu sei</h3>
-                <ol>
-                    <li>No começo do HTML, antes mesmo de começar as aulas de
-                        Desenvolvimento, só sabia <code>h1</code> <code>p</code>
-                        <code>img</code> <code>div</code> <code>br</code>
-                        <code>input</code> <code>button</code>.</li>
-                    <li>Depois de alguns meses eu aprendi muito mais tags no
-                        HTML como:<br> <code>ol/ul</code> <code>li</code>
-                        <code>a</code> <code>section</code> <code>article</code>
-                        <code>span</code> <code>code</code> <code>header</code>
-                        <code>footer</code> <code>main</code> <code>aside</code>
-                        <code>nav</code> <code>table/th/tr/td</code> entre
-                        outros.</li>
-                    <li>Entendi melhor algumas propriedades do HTML nas
-                        tags.</li>
-                    <li>Aprendi propriedades no CSS como: <br><code>display:
-                        flex/inline/block/grid/inline-block</code> <code>padding</code>
-                        <code>margin</code> <code>font-family</code>
-                        <code>bottom/top/left/right</code> <code>position</code>
-                        <code>box-shadow/border/border-radius</code>
-                        <code>transition</code></li>
-                    <li>Descubri que existe maneiras de criar animação sem
-                        JavaScript usando <code>@keyframes "nome"</code> e
-                        colocar <code>animation</code> na tag desejada.</li>
-                    <li>Também estou estudando Java, POO (Programação orientado a
-                        objeto), SQL, HTML e CSS, Linux, UX (user experience) e um pouco de JavaScript.</li>
-                </ol>
-                <input type="email" name id="email" placeholder="E-mail">
-                <button type="submit" id="enviar">Enviar</button>  
-                <p id="resposta"></p>
-                <p class="textos">(Isso é apenas um teste, nenhum dado será coletado neste
-                    site)</p>
-            </section>
+            <div id="principal">
+                <input type="range" id="opacidadeFundo" min="0.6" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                <section id="sobre">
+                    <h3>Sobre mim</h3>
+                    <hr>
+                    <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do
+                        Instituto J&F.
+                    </p>
+                    <hr>
+                    <p class="textos">Gosto muito de programação, explorar e
+                        treinar meu raciocínio lógico, gosto de jogar jogos,
+                        assitir anime, ouvir música geek.
+                    </p>
+                    <hr>
+                    <p class="textos">Sempre tive
+                        vontade de querer fazer jogos, mas não sabia programar, nem
+                        lógica de programação.
+                        Antes de entrar na Germinare tentei fazer um jogo na
+                        Unity com ajuda do ChatGPT, que disponibiliza apenas
+                        <code>C#</code> como linguagem de programação, mas era muito
+                        complexo algumas funções
+                        e interfaces, o lado positivo foi o aprendizado de comportamentos
+                        básicos de componentes de um jogo.
+                    </p>
+                    <hr>
+                    <p class="textos">
+                        No curso de Python, aprendi a lógica de
+                        programação, o que ajudou a otimizar alguns códigos do jogo.
+                        Depois disso parei de utilizar a Unity por um tempo, e mudei
+                        para o GameMaker que tinha uma linguagem de programação
+                        própria, mas com ferramentas que facilitava o uso, além de
+                        estar em português. A linguagem é parecida com a
+                        combinação
+                        de JavaScript, com Python.
+                    </p>
+                    <hr>
+                    <p class="textos">Com as aulas de POO (Programação orientada a objeto)
+                        melhorei muito a organização de funções no jogo,
+                        principalmente para otimizar o jogo.
+                    </p>
+                    <hr>
+                    <br>
+                    <h3>Sobre o que eu sei</h3>
+                    <ol>
+                        <li>No começo do HTML, antes mesmo de começar as aulas de
+                            Desenvolvimento, só sabia <code>h1</code> <code>p</code>
+                            <code>img</code> <code>div</code> <code>br</code>
+                            <code>input</code> <code>button</code>.</li>
+                        <li>Depois de alguns meses eu aprendi muito mais tags no
+                            HTML como:<br> <code>ol/ul</code> <code>li</code>
+                            <code>a</code> <code>section</code> <code>article</code>
+                            <code>span</code> <code>code</code> <code>header</code>
+                            <code>footer</code> <code>main</code> <code>aside</code>
+                            <code>nav</code> <code>table/th/tr/td</code> entre
+                            outros.</li>
+                        <li>Entendi melhor algumas propriedades do HTML nas
+                            tags.</li>
+                        <li>Aprendi propriedades no CSS como: <br><code>display:
+                            flex/inline/block/grid/inline-block</code> <code>padding</code>
+                            <code>margin</code> <code>font-family</code>
+                            <code>bottom/top/left/right</code> <code>position</code>
+                            <code>box-shadow/border/border-radius</code>
+                            <code>transition</code></li>
+                        <li>Descubri que existe maneiras de criar animação sem
+                            JavaScript usando <code>@keyframes "nome"</code> e
+                            colocar <code>animation</code> na tag desejada.</li>
+                        <li>Também estou estudando Java, POO (Programação orientado a
+                            objeto), SQL, HTML e CSS, Linux, UX (user experience) e um pouco de JavaScript.</li>
+                    </ol>
+                    <input type="email" name id="email" placeholder="E-mail">
+                    <button type="submit" id="enviar" class="confirmacao">Enviar</button>
+                    <p id="resposta"></p>
+                </section>
+            </div>
         </main>
         <footer>&copy; Todos os direitos reservados ao site Fatreon (de Krs95xz)
             &copy;</footer>
-        <script src="funcoes.js"></script>
-        <script src="mouse.js"></script>
+        <script src="scripts/funcoes.js"></script>
+        <script src="scripts/mouse.js"></script>
     </body>
 </html>

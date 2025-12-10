@@ -31,6 +31,7 @@ function tamanho(quant) {
     } else if (quantTamanho > 500){
         quantTamanho = 500;
     }
+    pontos.forEach(p => p.remove());
     pontos.length = 0;
     pontos = [];
     for (let c = 1; c <= quantTamanho; c++) {
