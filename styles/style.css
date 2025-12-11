@@ -32,6 +32,11 @@ h1 {
     font-size: 30px;
     transition: 1s;
 }
+h1 span:hover {
+    color: var(--corAzul);
+    transition: 0.3s;
+    cursor: pointer;
+}
 header {
     background-color: black;
     width: 100dvw;
@@ -81,6 +86,7 @@ input[type="number"]::-webkit-outer-spin-button {
     transition: 0.5s;
     height: auto;
     width: auto;
+    font-style: monospace;
 }
 aside input, aside label {
     color: white;
@@ -106,11 +112,14 @@ input[type="color"] {
     opacity: 0;
 }
 .blocoCores {
-    width: 4px;
+    flex: 1;
     height: 25px;
     border: 2px solid white;
     cursor: pointer;
     background: var(--corLaranja);
+}
+:has(.corOculta:focus) .blocoCores {
+    border: 2px solid var();
 }
 .ativacao {
     display: flex;
@@ -149,6 +158,8 @@ input[type="color"] {
 }
 .boxColor {
     width: 40%;
+    display: flex;
+    flex-direction: column;
 }
 #buttonRastro {
     text-align: center;
@@ -183,6 +194,18 @@ input[type="color"] {
     flex: 29;
     display: flex;
     flex-direction: column;
+}
+#principal span {
+    display: inline-block;
+    transition: transform 0.2s;
+}
+#principal span:hover {
+    color: var(--corLaranja);
+    font-weight: bold;
+    transform: translateY(-5px) scale(1.1);
+}
+.textos {
+    user-select: none;
 }
 #sobre {
     background-color: rgb(255, 255, 255);

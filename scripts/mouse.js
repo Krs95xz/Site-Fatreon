@@ -7,24 +7,16 @@ corRastro1.addEventListener("input", () => {
 corRastro2.addEventListener("input", () => {
     document.getElementById("cor2").style.background = corRastro2.value;
 });
-var disparoDiv = false;
-conteudo = document.getElementById("conteudo");
-conteudo.addEventListener("mouseenter", () => {
-    disparoDiv = false;
-});
-conteudo.addEventListener("mousemove", () => {
-    disparoDiv = false;
-})
-conteudo.addEventListener("mouseleave", () => {
-    disparoDiv = true;
-})
-setInterval(() => {
-    if (ativaRastro.checked == true && disparoDiv) {
+function executarRastro() {
+    if (ativaRastro.checked) {
         document.addEventListener("mousemove", valores);
     } else {
         document.removeEventListener("mousemove", valores);
     }
-}, 200);
+}
+function desativarRastro() {
+    document.removeEventListener("mousemove", valores);
+}
 var pontos = [];
 var xS;
 var yS;
@@ -86,12 +78,11 @@ function parar() {
         c1 = x;
     }
 }
-setInterval(parar, 200)
-function paraInsercao() {
-    for (let r = 0; r < pontos.length; r++) {
-        pontos[r].style.display = "none";
-    }
-}
+window.addEventListener("mousemove", () => {
+    var timer;
+    clearTimeout(timer);
+    timer = setTimeout(parar, 2000);
+})
 function colocarRastro(valor) {
     let texto = valor.value;
     let j = 0;

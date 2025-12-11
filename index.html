@@ -22,11 +22,11 @@
                 <div id="hora"></div>
             </div>
             <div class="titulo">
-                <h1 class="fatreon">FATREON</h1>
+                <h1 class="fatreon"><span>F</span><span>A</span><span>T</span><span>R</span><span>E</span><span>O</span><span>N</span></h1>
             </div>
         </header>
         <main>
-            <aside id="conteudo" onmouseleave="fecharToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo'))">
+            <aside id="conteudo" onmouseleave="fecharToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo')); executarRastro()" onmousemove="desativarRastro()">
                 <div id="secao">
                     <img src="assets/icon/iconMouse.png" alt="" class="topicFerramenta" onclick="abrirToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo'))">
                 </div>
@@ -42,70 +42,44 @@
                         </div>
                         <div class="dados" id="formatoCaixa">
                             <label for class="insercao">Formato rastro:</label>
-                            <input type="text" id="formato" class="inputsMouse" value="X" style="font-style: monospace;">
+                            <input type="text" id="formato" class="inputsMouse" value="X">
                         </div>
                         <div class="dadosCores" id="cores">
                             <div class="boxColor">
-                                <label for class="insercao">Cor rastro 1:</label>
+                                <label for class="insercao">Cor acima:</label>
                                 <label class="blocoCores" id="cor1">
-                                    <input type="color" id="corRastro1" value="#ff8400">
+                                    <input type="color" id="corRastro1" class="corOculta" value="#ff8400">
                                 </label>
                             </div>
-                            <div class="boxColor" style="margin-right: 5px;">
-                                <label for class="insercao">Cor rastro 2:</label>
+                            <div class="boxColor">
+                                <label for class="insercao">Cor abaixo:</label>
                                 <label class="blocoCores" id="cor2">
-                                    <input type="color" id="corRastro2" value="#ff8400">
+                                    <input type="color" id="corRastro2" class="corOculta" value="#ff8400">
                                 </label>
                             </div>
                         </div>
                         <div id="buttonRastro">
                             <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
                         </div>
-                        <p id="aviso">Aplique sempre, a cada mudança. (mudança
-                            de cor não é necessário)</p>
+                        <p id="aviso">Aplique sempre a cada mudança. (mudança
+                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de rastro elevado pode deixar o sistema lento e pesado.</span></p>
                     </div>
                 </div>
             </aside>
             <div id="principal">
-                <input type="range" id="opacidadeFundo" min="0.5" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                <input type="range" id="opacidadeFundo" min="0.4" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
                 <section id="sobre">
                     <h3>Sobre mim</h3>
                     <hr>
-                    <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do
-                        Instituto J&F.
-                    </p>
+                    <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do Instituto J&F.</p>
                     <hr>
-                    <p class="textos">Gosto muito de programação, explorar e
-                        treinar meu raciocínio lógico, gosto de jogar jogos,
-                        assitir anime, ouvir música geek.
-                    </p>
+                    <p class="textos">Gosto muito de programação, explorar e treinar meu raciocínio lógico, gosto de jogar jogos, assitir anime, ouvir música geek.</p>
                     <hr>
-                    <p class="textos">Sempre tive
-                        vontade de querer fazer jogos, mas não sabia programar, nem
-                        lógica de programação.
-                        Antes de entrar na Germinare tentei fazer um jogo na
-                        Unity com ajuda do ChatGPT, que disponibiliza apenas
-                        <code>C#</code> como linguagem de programação, mas era muito
-                        complexo algumas funções
-                        e interfaces, o lado positivo foi o aprendizado de comportamentos
-                        básicos de componentes de um jogo.
-                    </p>
+                    <p class="textos">Sempre tive vontade de querer fazer jogos, mas não sabia programar, nem lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity com ajuda do ChatGPT, que disponibiliza apenas C# como linguagem de programação, mas era muito complexo algumas funções e interfaces, o lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.</p>
                     <hr>
-                    <p class="textos">
-                        No curso de Python, aprendi a lógica de
-                        programação, o que ajudou a otimizar alguns códigos do jogo.
-                        Depois disso parei de utilizar a Unity por um tempo, e mudei
-                        para o GameMaker que tinha uma linguagem de programação
-                        própria, mas com ferramentas que facilitava o uso, além de
-                        estar em português. A linguagem é parecida com a
-                        combinação
-                        de JavaScript, com Python.
-                    </p>
+                    <p class="textos">No curso de Python, aprendi a lógica de programação, o que ajudou a otimizar alguns códigos do jogo. Depois disso parei de utilizar a Unity por um tempo, e mudei para o GameMaker que tinha uma linguagem de programação própria, mas com ferramentas que facilitava o uso, além de estar em português. A linguagem é parecida com a combinação de JavaScript, com Python.</p>
                     <hr>
-                    <p class="textos">Com as aulas de POO (Programação orientada a objeto)
-                        melhorei muito a organização de funções no jogo,
-                        principalmente para otimizar o jogo.
-                    </p>
+                    <p class="textos">Com as aulas de POO (Programação orientada a objeto) melhorei muito a organização de funções no jogo, principalmente para otimizar o jogo.</p>
                     <hr>
                     <br>
                     <h3>Sobre o que eu sei</h3>

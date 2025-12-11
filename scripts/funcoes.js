@@ -33,13 +33,18 @@ function fecharToll(toll, aside) {
 function alterarFundo(valor) {
     var fundo = document.getElementById("sobre")
     fundo.style.opacity = valor
+    if (fundo.style.opacity <= 0.6) {
+        fundo.style.pointerEvents = "none"
+        fundo.style.userSelect = "none"
+    } else {
+        fundo.style.pointerEvents = "auto"
+        fundo.style.userSelect = "auto"
+    }
 }
 
 var enviar = document.getElementById("enviar")
 if (enviar != null) {
     enviar.addEventListener('click', mostrar)
-    // enviar.addEventListener('mouseenter', entrar)
-    // enviar.addEventListener('mouseout', saiu)
 }
 
 function mostrar() {
@@ -119,22 +124,14 @@ setInterval(mudar_back, 9000)
 var textos = document.getElementsByClassName("textos");
 function separar(elementos) {
     for (let el of elementos) {
-        const chars = [...el.textContent];
-        el.innerHTML = "";
-        chars.forEach(char => {
-            const span = document.createElement("span");
-            span.className = "letras";
-            span.textContent = char;
-            el.appendChild(span);
-        });
+        const chars = el.textContent.split("");
+
+        el.innerHTML = chars
+            .map(c => {
+                if (c === " ") return " ";
+                return `<span class="letras">${c}</span>`;
+            })
+            .join("");
     }
 }
 separar(textos)
-
-var letras = document.getElementsByClassName("letras")
-document.addEventListener("mouseenter", letras => {
-    for (let i=0; i < letras.length; i++) {
-        letras[i].style.marginBottom = "7px"
-        letras[i].style.transition = "0.5s"
-    }
-})
