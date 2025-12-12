@@ -112,8 +112,10 @@
                         <li>Também estou estudando Java, POO (Programação orientado a
                             objeto), SQL, HTML e CSS, Linux, UX (user experience) e um pouco de JavaScript.</li>
                     </ol>
-                    <input type="email" name id="email" placeholder="E-mail">
-                    <button type="submit" id="enviar" class="confirmacao">Enviar</button>
+                    <div>
+                        <input type="email" id="email" placeholder="E-mail" required pattern="^.{3,}@.{2,}/.[com|br|org]" title="Email tem que ter .com, .br ou .org como domínio">
+                        <button id="enviar" class="confirmacao" onclick="mostrar()">Enviar</button>
+                    </div>
                     <p id="resposta"></p>
                 </section>
             </div>

@@ -1,5 +1,4 @@
 const data = new Date()
-var enviar = document.getElementById("enviar")
 var diaSem = data.getDay()
 const diasSem = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 var dia = data.getDate()
@@ -8,6 +7,13 @@ var ano = data.getFullYear()
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 var cor_back = document.body
 var textos = document.getElementsByClassName("textos");
+var emailInput = document.getElementById("email");
+
+emailInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        mostrar();
+    }
+})
 
 function abrirToll(toll, aside) {
     var principal = document.getElementById("principal")
@@ -50,43 +56,20 @@ function alterarFundo(valor) {
         fundo.style.userSelect = "auto"
     }
 }
-
-if (enviar != null) {
-    enviar.addEventListener('click', mostrar)
-}
-
 function mostrar() {
-    var nome = document.getElementById("email").value
-    if (nome != null) {
-        var errado = 0
-        if (nome.includes("@gmail.com") || nome.includes("@outlook.com") || nome.includes("@hotmail.com")) {
-            if (nome[0] != "@") {
-                errado = 1
-            } else {
-                errado = 0
-            }
-        }
-        if (nome.includes(' ')) {
-            errado = 0
-        }
-        if (errado == 1) {
-            if (nome.substring(0, nome.indexOf("@")).includes(".")) {
-                var nomeText = nome.substring(0, nome.indexOf("."))
-            } else if (nome.includes("_")) {
-                var nomeText = nome.substring(0, nome.indexOf("_"))
-            } else {
-                var nomeText = nome.substring(0, nome.indexOf("@"))
-            }
+    if (emailInput != null) {
+        if (/^[^ ]{3,}@[^ ]{2,}\.(com|br|org)$/.test(emailInput.value)) {
+            var nomeText = emailInput.value.substring(0, emailInput.value.indexOf("@"));
+            nomeText = nomeText.replace(/[._-]/, ' ');
             document.getElementById("resposta").textContent = `Olá ${nomeText}! Seja bem-vindo(a)!`
         } else {
-            document.getElementById("resposta").textContent = 'Por favor, coloque o complemento do arroba correto e não coloque espaço no e-mail (Observação: use seu e-mail pessoal)'
+            document.getElementById("resposta").textContent = 'Por favor, coloque um e-mail válido.'
         }
     }
 }
 
 document.getElementById("diaSem").textContent = diasSem[diaSem]
 document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`
-
 function horario() {
     var data_h = new Date()
     var hora_t = String(data_h.getHours()).padStart(2, '0')
@@ -94,22 +77,21 @@ function horario() {
     var segundo = String(data_h.getSeconds()).padStart(2, '0')
     document.getElementById('hora').textContent = `Horário atual: ${hora_t}:${minuto}:${segundo}`
 }
-
 horario();
 setInterval(horario, 1000);
 
 function mudar_back() {
     var hora_n = data.getHours()
     if (hora_n >= 18){
-        // cor_back.style.backgroundColor = 'rgb(20, 18, 18)'
+        // cor_back.style.backgroundColor = 'rgba(0, 0, 0, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Noite'
     }
     if (hora_n < 6) {
-        // cor_back.style.backgroundColor = 'rgb(20, 18, 18)'
+        // cor_back.style.backgroundColor = 'rgba(0, 0, 0, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Madrugada'
     }
     if (6 <= hora_n && hora_n < 12) {
-        // cor_back.style.backgroundColor = 'rgba(228, 216, 56, 0.53)'
+        // cor_back.style.backgroundColor = 'rgba(150, 150, 150, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Manhã'
     }
     if (12 <= hora_n && hora_n < 18) {
@@ -117,7 +99,6 @@ function mudar_back() {
         document.getElementById('periodo').textContent = 'Período atual: Tarde'
     }
 }
-
 mudar_back();
 setInterval(mudar_back, 9000)
 
@@ -133,8 +114,7 @@ function separar(elementos) {
             .join("");
     }
 }
-separar(textos)
-
+separar(textos);
 function animarLetras() {
     const letras = Array.from(document.getElementsByClassName("letras"));
     letras.forEach((valor, i) => {
