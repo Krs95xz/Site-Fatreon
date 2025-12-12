@@ -3,8 +3,10 @@
     pointer-events: none;
     user-select: none;
     font-weight: 100;
-    display: none;
+    opacity: 0;
+    color: transparent;
     font-family: 'Bitcount Prop Single';
     font-size: 35px;
     z-index: 2;
+    transition: "opacity 0.3s ease-in-out";
 }

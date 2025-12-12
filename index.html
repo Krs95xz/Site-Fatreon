@@ -62,12 +62,15 @@
                             <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
                         </div>
                         <p id="aviso">Aplique sempre a cada mudança. (mudança
-                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de rastro elevado pode deixar o sistema lento e pesado.</span></p>
+                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de rastro elevado pode deixar o site lento e pesado.</span></p>
                     </div>
                 </div>
             </aside>
             <div id="principal">
-                <input type="range" id="opacidadeFundo" min="0.4" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                <div id="valoresText">
+                    <input type="range" id="opacidadeFundo" min="0.4" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                    <button class="confirmacao" onclick="animarLetras()">Animar</button>
+                </div>
                 <section id="sobre">
                     <h3>Sobre mim</h3>
                     <hr>

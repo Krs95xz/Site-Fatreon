@@ -1,4 +1,13 @@
 const data = new Date()
+var enviar = document.getElementById("enviar")
+var diaSem = data.getDay()
+const diasSem = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
+var dia = data.getDate()
+var mes = data.getMonth()
+var ano = data.getFullYear()
+const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+var cor_back = document.body
+var textos = document.getElementsByClassName("textos");
 
 function abrirToll(toll, aside) {
     var principal = document.getElementById("principal")
@@ -42,7 +51,6 @@ function alterarFundo(valor) {
     }
 }
 
-var enviar = document.getElementById("enviar")
 if (enviar != null) {
     enviar.addEventListener('click', mostrar)
 }
@@ -76,14 +84,7 @@ function mostrar() {
     }
 }
 
-var diaSem = data.getDay()
-const diasSem = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
 document.getElementById("diaSem").textContent = diasSem[diaSem]
-
-var dia = data.getDate()
-var mes = data.getMonth()
-var ano = data.getFullYear()
-const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`
 
 function horario() {
@@ -97,7 +98,6 @@ function horario() {
 horario();
 setInterval(horario, 1000);
 
-var cor_back = document.body
 function mudar_back() {
     var hora_n = data.getHours()
     if (hora_n >= 18){
@@ -121,7 +121,6 @@ function mudar_back() {
 mudar_back();
 setInterval(mudar_back, 9000)
 
-var textos = document.getElementsByClassName("textos");
 function separar(elementos) {
     for (let el of elementos) {
         const chars = el.textContent.split("");
@@ -135,3 +134,22 @@ function separar(elementos) {
     }
 }
 separar(textos)
+
+function animarLetras() {
+    const letras = Array.from(document.getElementsByClassName("letras"));
+    letras.forEach((valor, i) => {
+        setTimeout(() => {
+            valor.classList.add("animado");
+            if (letras[i - 6] !== undefined) {
+                letras[i - 6].classList.remove("animado");
+            }
+            if (i === letras.length - 1) {
+                for (let j = i - 5; j <= i; j++) {
+                    setTimeout(() => {
+                        letras[j].classList.remove("animado");
+                    }, (j - (i - 5)) * 40);
+                }
+            }
+        }, i * 40);
+    });
+}
