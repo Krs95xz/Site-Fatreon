@@ -28,15 +28,12 @@ header, footer {
     text-align: center;
     width: 100dvw;
 }
-h1 {
-    text-align: center;
-    font-size: 30px;
+#tituloImg {
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 300px;
+    height: auto;
     transition: 1s;
-}
-h1 span:hover {
-    color: var(--corAzul);
-    transition: 0.3s;
-    cursor: pointer;
 }
 .animado {
     color: var(--corLaranja);
@@ -270,11 +267,18 @@ ol {
     padding-left: 20px;
 }
 main {
-    margin-top: 86px;
+    margin-top: 83px;
     display: flex;
     gap: 10%;
     transition: 1s;
     container-type: normal;
+}
+#gameplayFatreon {
+    width: 1000px;
+    border: 3px solid var(--corAzul);
+    border-radius: 15px;
+    display: block;
+    margin: auto;
 }
 p {
     text-align: left;
@@ -329,6 +333,10 @@ p {
     }
     .dados {
         flex-direction: column;
+    }
+    #tituloImg {
+        margin-top: 15px;
+        width: 240px;
     }
 }
 @keyframes Transicao {

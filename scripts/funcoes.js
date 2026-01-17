@@ -7,13 +7,11 @@ var ano = data.getFullYear()
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
 var cor_back = document.body
 var textos = document.getElementsByClassName("textos");
-var emailInput = document.getElementById("email");
+const videoGameplay = document.getElementById("gameplayFatreon");
 
-emailInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        mostrar();
-    }
-})
+videoGameplay.addEventListener("play", () => {
+    videoGameplay.volume = 0.55; // volume fixo entre 0.0 e 1.0
+});
 
 function abrirToll(toll, aside) {
     var principal = document.getElementById("principal")
@@ -54,17 +52,6 @@ function alterarFundo(valor) {
     } else {
         fundo.style.pointerEvents = "auto"
         fundo.style.userSelect = "auto"
-    }
-}
-function mostrar() {
-    if (emailInput != null) {
-        if (/^[^ ]{3,}@[^ ]{2,}\.(com|br|org)$/.test(emailInput.value)) {
-            var nomeText = emailInput.value.substring(0, emailInput.value.indexOf("@"));
-            nomeText = nomeText.replace(/[._-]/, ' ');
-            document.getElementById("resposta").textContent = `Olá ${nomeText}! Seja bem-vindo(a)!`
-        } else {
-            document.getElementById("resposta").textContent = 'Por favor, coloque um e-mail válido.'
-        }
     }
 }
 
