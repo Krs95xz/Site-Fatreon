@@ -32,7 +32,7 @@
                 </div>
                 <div id="configuracoesMouse" class="configuracoes">
                     <div class="ativacao">
-                        <h4 class="insercao">Ativar trilha do cursor?</h4>
+                        <h4 class="insercao">Ativar trilha no cursor?</h4>
                         <input type="checkbox" name="ativarConfig" id="inputRastro" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">
                     </div>
                     <div class="bloco">
@@ -62,21 +62,21 @@
                             <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
                         </div>
                         <p id="aviso">Aplique sempre a cada mudança. (mudança
-                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de rastro elevado pode deixar o site lento e pesado.</span></p>
+                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de caracteres elevado pode deixar o site lento e pesado.</span></p>
                     </div>
                 </div>
             </aside>
             <div id="principal">
                 <div id="valoresText">
-                    <input type="range" id="opacidadeFundo" min="0.4" max="1" value="1" step="0.05" class="slider" onclick="alterarFundo(document.getElementById('opacidadeFundo').value)">
+                    <input type="range" id="opacidadeFundo" min="0.4" max="1" value="1" step="0.05" class="slider" onchange="alterarFundo(document.getElementById('opacidadeFundo').value)">
                     <button class="confirmacao" onclick="animarLetras()">Animar</button>
                 </div>
                 <section id="sobre">
-                    <h3>Sobre mim</h3>
+                    <h3 class="textos">Sobre mim</h3>
                     <hr>
                     <p class="textos">Meu nome é Kauã, sou aluno da Escola Germinare TECH do Instituto J&F.</p>
                     <hr>
-                    <p class="textos">Gosto muito de programação, explorar e treinar meu raciocínio lógico, gosto de jogar jogos, assitir anime, ouvir música geek.</p>
+                    <p class="textos">Gosto muito de programação, explorar e treinar novos modos de desenvolver um código, jogar jogos, assitir anime, ouvir música geek.</p>
                     <hr>
                     <p class="textos">Sempre tive vontade de querer fazer jogos, mas não sabia programar, nem lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity com ajuda do ChatGPT, que disponibiliza apenas C# como linguagem de programação, mas era muito complexo algumas funções e interfaces, o lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.</p>
                     <hr>
@@ -85,9 +85,9 @@
                     <p class="textos">Com as aulas de POO (Programação orientada a objeto) melhorei muito a organização de funções no jogo, principalmente para otimizar o jogo.</p>
                     <hr>
                     <br>
-                    <h3>Sobre o projeto do meu jogo</h3>
-                    <p>A principio o jogo é estilo plataforma 2D, em pixel art, com mecanicas de andar, pular, dash e correr.</p>
-                    <p>Até a presente data de 17/01/2026, o projeto está em desenvolvimento.<br>Sendo por enquanto um teste, mas se o desenvolvimento for algo grande e promissor, possa ser algo oficial para se lançar como jogo.</p>
+                    <h3 class="textos">Sobre o projeto do meu jogo</h3>
+                    <p class="textos">A principio o jogo é estilo plataforma 2D, em pixel art, com mecanicas de andar, pular, dash e correr.</p>
+                    <p class="textos">Até a presente data de 17/01/2026, o projeto está em desenvolvimento.<br> Sendo por enquanto um teste, mas se o desenvolvimento for algo grande e promissor, possa ser algo oficial para se lançar como jogo.</p>
                     <video id="gameplayFatreon" controls loop>
                         <source src="assets/videos/GameplayFatreon.mp4" type="video/mp4">
                     </video>

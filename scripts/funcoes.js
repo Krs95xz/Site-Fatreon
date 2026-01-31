@@ -19,17 +19,15 @@ function abrirToll(toll, aside) {
         toll.style.visibility = "hidden"
         toll.style.opacity = "0"
         toll.style.transition = "0.5s"
-        aside.style.flex = "1"
-        aside.style.width = "50px"
-        principal.style.flex = "29"
+        aside.style.width = "60px"
+        principal.style.width = "100%"
         principal.style.transition = "0.5s"
     } else {
         toll.style.visibility = "visible"
         toll.style.opacity = "1"
         toll.style.transition = "0.5s"
-        aside.style.flex = "2"
-        aside.style.width = "100%"
-        principal.style.flex = "3"
+        aside.style.width = "30%"
+        principal.style.width = "70%"
         principal.style.transition = "0.5s"
     }
 }
@@ -38,9 +36,8 @@ function fecharToll(toll, aside) {
     toll.style.visibility = "hidden"
     toll.style.opacity = "0"
     toll.style.transition = "0.5s"
-    aside.style.flex = "1"
-    aside.style.width = "50px"
-    principal.style.flex = "29"
+    aside.style.width = "60px"
+    principal.style.width = "100%"
     principal.style.transition = "0.5s"
 }
 function alterarFundo(valor) {

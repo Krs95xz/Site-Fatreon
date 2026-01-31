@@ -3,16 +3,20 @@
     --corLaranja: rgb(255, 132, 0);
     --corCinza: rgb(39, 39, 39);
 }
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: rgb(0, 0, 0);
-    margin: 0;
-    padding: 0;
-    top: 0;
     font-family: 'Montserrat';
     animation: Transicao 1s;
 }
 html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
     scroll-behavior: smooth;
 }
 body::-webkit-scrollbar, html::-webkit-scrollbar {
@@ -27,6 +31,10 @@ header, footer {
     color: white;
     text-align: center;
     width: 100dvw;
+}
+footer {
+    position: relative;
+    bottom: 0;
 }
 #tituloImg {
     margin-top: 10px;
@@ -55,8 +63,7 @@ header {
     z-index: 1;
 }
 aside {
-    flex: 1;
-    width: 50px;
+    width: 60px;
     background-color: var(--corCinza);
     padding: 10px;
     border-right: 3px solid var(--corAzul);
@@ -73,9 +80,6 @@ input[type="number"]::-webkit-outer-spin-button {
     cursor: pointer;
     transition: 0.5s;
     width: 40px;
-    margin-top: 5px;
-    margin-left: 6px;
-    margin-bottom: 10px;
 }
 .configuracoes {
     padding: 10px;
@@ -193,7 +197,6 @@ input[type="color"] {
     background-color: white;
 }
 #principal {
-    flex: 29;
     display: flex;
     flex-direction: column;
 }
@@ -211,19 +214,15 @@ input[type="color"] {
 }
 #sobre {
     background-color: rgb(255, 255, 255);
-    padding: 30px;
     color: black;
     width: 100%;
     box-shadow: 0 0 15px rgba(245, 245, 245, 0.881);
     border-radius: 100px 0px 0px 100px;
     transition: 1s;
     animation: mover 5s;
-    margin-right: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-#sobre p, #sobre li {
-    margin-right: 40px;
+    padding: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 #valoresText {
     margin-top: 20px;
@@ -267,6 +266,7 @@ ol {
     padding-left: 20px;
 }
 main {
+    width: 100%;
     margin-top: 83px;
     display: flex;
     gap: 10%;
@@ -274,11 +274,12 @@ main {
     container-type: normal;
 }
 #gameplayFatreon {
-    width: 1000px;
+    width: 70%;
     border: 3px solid var(--corAzul);
     border-radius: 15px;
     display: block;
-    margin: auto;
+    margin: 0 auto;
+    padding: 0;
 }
 p {
     text-align: left;
@@ -311,7 +312,7 @@ p {
 .titulo {
     transition: 1s;
 }
-@media (max-width: 735px) {
+@media (max-width: 850px) {
     header {
         gap: 13%;
         transition: 1s;
