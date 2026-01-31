@@ -40,9 +40,11 @@ function fecharToll(toll, aside) {
     principal.style.width = "100%"
     principal.style.transition = "0.5s"
 }
-function alterarFundo(valor) {
+
+opacidadeFundoSobre = document.getElementById("opacidadeFundo")
+opacidadeFundoSobre.addEventListener("input", (valor) => {
     var fundo = document.getElementById("sobre")
-    fundo.style.opacity = valor
+    fundo.style.opacity = valor.target.value
     if (fundo.style.opacity <= 0.6) {
         fundo.style.pointerEvents = "none"
         fundo.style.userSelect = "none"
@@ -50,7 +52,7 @@ function alterarFundo(valor) {
         fundo.style.pointerEvents = "auto"
         fundo.style.userSelect = "auto"
     }
-}
+})
 
 document.getElementById("diaSem").textContent = diasSem[diaSem]
 document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`
