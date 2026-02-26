@@ -1,41 +1,45 @@
 const data = new Date()
-var diaSem = data.getDay()
+const diaSem = data.getDay()
 const diasSem = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado']
-var dia = data.getDate()
-var mes = data.getMonth()
-var ano = data.getFullYear()
+let dia = data.getDate()
+let mes = data.getMonth()
+let ano = data.getFullYear()
 const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-var cor_back = document.body
-var textos = document.getElementsByClassName("textos");
+let textos = document.getElementsByClassName("textos");
 const videoGameplay = document.getElementById("gameplayFatreon");
+const aside = document.getElementById("conteudo");
+const asideMouse = document.getElementById("configuracoesMouse");
 
 videoGameplay.addEventListener("play", () => {
-    videoGameplay.volume = 0.55; // volume fixo entre 0.0 e 1.0
+    videoGameplay.volume = 0.55;
 });
 
-function abrirToll(toll, aside) {
-    var principal = document.getElementById("principal")
-    if (toll.style.visibility === "visible") {
-        toll.style.visibility = "hidden"
-        toll.style.opacity = "0"
-        toll.style.transition = "0.5s"
+function abrirTollMouse() {
+    const principal = document.getElementById("principal")
+    if (asideMouse.style.opacity >= 1) {
+        setTimeout(() => {
+            asideMouse.style.display = "none"
+        }, 500);
+        asideMouse.style.opacity = "0"
         aside.style.width = "60px"
         principal.style.width = "100%"
         principal.style.transition = "0.5s"
     } else {
-        toll.style.visibility = "visible"
-        toll.style.opacity = "1"
-        toll.style.transition = "0.5s"
-        aside.style.width = "30%"
-        principal.style.width = "70%"
-        principal.style.transition = "0.5s"
+        asideMouse.style.display = "block"
+        setTimeout(() => {
+            asideMouse.style.opacity = "1"
+            aside.style.width = "30%"
+            principal.style.width = "70%"
+            principal.style.transition = "0.5s"
+        }, 100);
     }
 }
-function fecharToll(toll, aside) {
-    var principal = document.getElementById("principal")
-    toll.style.visibility = "hidden"
-    toll.style.opacity = "0"
-    toll.style.transition = "0.5s"
+function fecharTollMouse() {
+    const principal = document.getElementById("principal")
+    setTimeout(() => {
+        asideMouse.style.display = "none"
+    }, 500);
+    asideMouse.style.opacity = "0"
     aside.style.width = "60px"
     principal.style.width = "100%"
     principal.style.transition = "0.5s"
@@ -43,7 +47,7 @@ function fecharToll(toll, aside) {
 
 opacidadeFundoSobre = document.getElementById("opacidadeFundo")
 opacidadeFundoSobre.addEventListener("input", (valor) => {
-    var fundo = document.getElementById("sobre")
+    let fundo = document.getElementById("sobre")
     fundo.style.opacity = valor.target.value
     if (fundo.style.opacity <= 0.6) {
         fundo.style.pointerEvents = "none"
@@ -54,34 +58,42 @@ opacidadeFundoSobre.addEventListener("input", (valor) => {
     }
 })
 
-document.getElementById("diaSem").textContent = diasSem[diaSem]
-document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`
+document.getElementById("diaSem").textContent = diasSem[diaSem];
+
+if (window.innerWidth >= 500) {
+    document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`;
+} else {
+    document.getElementById('dia').textContent = `${dia}/${mes+1}/${ano}`;
+}
+window.addEventListener("resize", () => {
+    if (window.innerWidth >= 500) {
+        document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`;
+    } else {
+        document.getElementById('dia').textContent = `${dia}/${mes+1}/${ano}`;
+    }
+});
 function horario() {
-    var data_h = new Date()
-    var hora_t = String(data_h.getHours()).padStart(2, '0')
-    var minuto = String(data_h.getMinutes()).padStart(2, '0')
-    var segundo = String(data_h.getSeconds()).padStart(2, '0')
+    let data_h = new Date()
+    let hora_t = String(data_h.getHours()).padStart(2, '0')
+    let minuto = String(data_h.getMinutes()).padStart(2, '0')
+    let segundo = String(data_h.getSeconds()).padStart(2, '0')
     document.getElementById('hora').textContent = `Horário atual: ${hora_t}:${minuto}:${segundo}`
 }
 horario();
 setInterval(horario, 1000);
 
 function mudar_back() {
-    var hora_n = data.getHours()
+    let hora_n = data.getHours()
     if (hora_n >= 18){
-        // cor_back.style.backgroundColor = 'rgba(0, 0, 0, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Noite'
     }
     if (hora_n < 6) {
-        // cor_back.style.backgroundColor = 'rgba(0, 0, 0, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Madrugada'
     }
     if (6 <= hora_n && hora_n < 12) {
-        // cor_back.style.backgroundColor = 'rgba(150, 150, 150, 1)'
         document.getElementById('periodo').textContent = 'Período atual: Manhã'
     }
     if (12 <= hora_n && hora_n < 18) {
-        // cor_back.style.backgroundColor = 'rgb(253, 174, 17)'
         document.getElementById('periodo').textContent = 'Período atual: Tarde'
     }
 }

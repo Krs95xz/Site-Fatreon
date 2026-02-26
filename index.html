@@ -8,9 +8,8 @@
         <link rel="stylesheet" href="styles/styleMouse.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -26,9 +25,9 @@
             </div>
         </header>
         <main>
-            <aside id="conteudo" onmouseleave="fecharToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo')); executarRastro()" onmousemove="desativarRastro()">
+            <aside id="conteudo" onmousemove="desativarRastro()" onmouseleave="fecharTollMouse(); executarRastro()">
                 <div id="secao">
-                    <img src="assets/icon/iconMouse.png" alt="" class="topicFerramenta" onclick="abrirToll(document.getElementById('configuracoesMouse'), document.getElementById('conteudo'))">
+                    <img src="assets/icon/iconMouse.png" alt="" class="topicFerramenta" onclick="abrirTollMouse()">
                 </div>
                 <div id="configuracoesMouse" class="configuracoes">
                     <div class="ativacao">

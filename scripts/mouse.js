@@ -1,14 +1,14 @@
-var ativaRastro = document.getElementById("inputRastro");
-var corRastro1 = document.getElementById("corRastro1");
-var corRastro2 = document.getElementById("corRastro2");
-var pontos = [];
-var xS;
-var yS;
-var i = 0;
-var x = 0;
-var y = 0;
-var gradiente = `linear-gradient(${corRastro1.value}, ${corRastro2.value})`;
-var timer = null;
+let ativaRastro = document.getElementById("inputRastro");
+let corRastro1 = document.getElementById("corRastro1");
+let corRastro2 = document.getElementById("corRastro2");
+let pontos = [];
+let xS;
+let yS;
+let i = 0;
+let x = 0;
+let y = 0;
+let gradiente = `linear-gradient(${corRastro1.value}, ${corRastro2.value})`;
+let timer = null;
 
 corRastro1.addEventListener("input", () => {
     document.getElementById("cor1").style.background = corRastro1.value;
@@ -56,7 +56,7 @@ function tamanho(quant) {
 function valores(event) {
     x = event.pageX;
     y = event.pageY;
-    for (var k = 0; k < pontos.length; k++) {
+    for (let k = 0; k < pontos.length; k++) {
         pontos[k].style.opacity = "1";
     }
 }
@@ -77,7 +77,7 @@ function seguir() {
     i++;
 }
 function parar() {
-    for (var j = 0; j < pontos.length; j++) {
+    for (let j = 0; j < pontos.length; j++) {
         pontos[j].style.opacity = "0";
     }
 }
