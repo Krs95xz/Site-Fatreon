@@ -9,6 +9,8 @@ let x = 0;
 let y = 0;
 let gradiente = `linear-gradient(${corRastro1.value}, ${corRastro2.value})`;
 let timer = null;
+let intervalo = null;
+let movendo = false;
 
 corRastro1.addEventListener("input", () => {
     document.getElementById("cor1").style.background = corRastro1.value;
@@ -23,24 +25,38 @@ function detectarParado() {
     clearTimeout(timer);
     timer = setTimeout(() => {
         parar();
-    }, 50);
+    }, 300);
 }
 function executarRastro() {
+    if (intervalo) {
+        clearInterval(intervalo);
+    }
+
     if (ativaRastro.checked) {
+        movendo = true;
         window.addEventListener("mousemove", onMove);
+        window.addEventListener("pointermove", onMove);
+
+        intervalo = setInterval(() => {
+            seguir();
+        }, 30);
     } else {
+        movendo = false;
         window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("pointermove", onMove);
     }
 }
 function desativarRastro() {
+    movendo = false;
     window.removeEventListener("mousemove", onMove);
+    window.removeEventListener("pointermove", onMove);
 }
 function tamanho(quant) {
     let quantTamanho = quant.value;
     if (quantTamanho < 0) {
         quantTamanho = 0;
-    } else if (quantTamanho > 200){
-        quantTamanho = 200;
+    } else if (quantTamanho > 500){
+        quantTamanho = 500;
     }
     pontos.forEach(p => p.remove());
     for (let c = 1; c <= quantTamanho; c++) {
@@ -64,17 +80,11 @@ function seguir() {
     if (i >= pontos.length) {
         i = 0;
     }
-    if (i <= pontos.length - 1) {
-        yS[i] = y;
-        xS[i] = x;
-    }
-    if (i < pontos.length) {
-        pontos[i].style.left = xS[i] + "px";
-        pontos[i].style.top = yS[i] + "px";
-        pontos[i].style.background = gradiente;
-        pontos[i].style.backgroundClip = "text";
-    }
-    i++;
+    pontos[i].style.left = `${x}px`;
+    pontos[i].style.top = `${y}px`;
+    pontos[i].style.background = gradiente;
+    pontos[i].style.backgroundClip = "text";
+    i ++;
 }
 function parar() {
     for (let j = 0; j < pontos.length; j++) {
@@ -98,6 +108,5 @@ function chamarFuncoes(valor1, valor2) {
 }
 function onMove(e) {
     valores(e);
-    seguir();
     detectarParado();
 }

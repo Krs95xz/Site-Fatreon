@@ -24,8 +24,8 @@
                 <img src="assets/images/tituloFatreonGrande.png" alt="" id="tituloImg">
             </div>
         </header>
-        <main>
-            <aside id="conteudo" onmousemove="desativarRastro()" onmouseleave="fecharTollMouse(); executarRastro()">
+        <main id="area-principal">
+            <aside id="conteudo" onmouseenter="desativarRastro()" onmouseleave="fecharTollMouse(); executarRastro()">
                 <div id="secao">
                     <img src="assets/icon/iconMouse.png" alt="" class="topicFerramenta" onclick="abrirTollMouse()">
                 </div>
@@ -36,11 +36,11 @@
                     </div>
                     <div class="bloco">
                         <div class="dados" id="quantidade">
-                            <label for class="insercao">Quantidade trilha:</label>
+                            <label for class="insercao">Quantidade caracteres:</label>
                             <input type="number" id="qntRastro" class="inputsMouse" placeholder="Quantidade de caracteres(Trilha)" value="10" min="0" max="100">
                         </div>
                         <div class="dados" id="formatoCaixa">
-                            <label for class="insercao">Formato trilha:</label>
+                            <label for class="insercao">Caracteres:</label>
                             <input type="text" id="formato" class="inputsMouse" value="X">
                         </div>
                         <div class="dadosCores" id="cores">
@@ -58,10 +58,9 @@
                             </div>
                         </div>
                         <div id="buttonRastro">
-                            <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Aplicar</button>
+                            <button id="aplicaDados" class="confirmacao" onclick="chamarFuncoes(document.getElementById('qntRastro'), document.getElementById('formato'))">Salvar</button>
                         </div>
-                        <p id="aviso">Aplique sempre a cada mudança. (mudança
-                            de cor não é necessário)<br><span style="color: yellow;">Colocar quantidade de caracteres elevado pode deixar o site lento e pesado.</span></p>
+                        <p id="aviso"><span style="color: yellow;">Colocar quantidade de caracteres elevado pode deixar o site lento e pesado.</span></p>
                     </div>
                 </div>
             </aside>
@@ -77,15 +76,13 @@
                     <hr>
                     <p class="textos">Gosto muito de programação, explorar e treinar novos modos de desenvolver um código, jogar jogos, assitir anime, ouvir música geek.</p>
                     <hr>
-                    <p class="textos">Sempre tive vontade de querer fazer jogos, mas não sabia programar, nem lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity com ajuda do ChatGPT, que disponibiliza apenas C# como linguagem de programação, mas era muito complexo algumas funções e interfaces, o lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.</p>
+                    <p class="textos">Sempre tive vontade de querer fazer jogos, mas não sabia programar, nem sabia de lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity, que disponibiliza apenas C# como linguagem de programação, mas era muito complexo algumas funções e interfaces da Engine, o lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.</p>
                     <hr>
-                    <p class="textos">No curso de Python, aprendi a lógica de programação, o que ajudou a otimizar alguns códigos do jogo. Depois disso parei de utilizar a Unity por um tempo, e mudei para o GameMaker que tinha uma linguagem de programação própria, mas com ferramentas que facilitava o uso, além de estar em português. A linguagem é parecida com a combinação de JavaScript, com Python.</p>
-                    <hr>
-                    <p class="textos">Com as aulas de POO (Programação orientada a objeto) melhorei muito a organização de funções no jogo, principalmente para otimizar o jogo.</p>
+                    <p class="textos">No curso de Python da Germinare, aprendi a lógica de programação, o que ajudou a otimizar alguns códigos do jogo. Depois disso parei de utilizar a Unity, e mudei para o GameMaker que tinha uma linguagem de programação própria, mas com ferramentas que facilitava o uso, além de estar em português. A linguagem é parecida com a combinação de JavaScript, com Python.</p>
                     <hr>
                     <br>
                     <h3 class="textos">Sobre o projeto do meu jogo</h3>
-                    <p class="textos">A principio o jogo é estilo plataforma 2D, em pixel art, com mecanicas de andar, pular, dash e correr.</p>
+                    <p class="textos">A principio o jogo é estilo plataforma 2D, em pixel art, com mecânicas de andar, pular, dash e correr.</p>
                     <p class="textos">Até a presente data de 17/01/2026, o projeto está em desenvolvimento.<br> Sendo por enquanto um teste, mas se o desenvolvimento for algo grande e promissor, possa ser algo oficial para se lançar como jogo.</p>
                     <video id="gameplayFatreon" controls loop>
                         <source src="assets/videos/GameplayFatreon.mp4" type="video/mp4">

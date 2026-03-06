@@ -38,8 +38,7 @@ footer {
     bottom: 0;
 }
 #tituloImg {
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 10px 0;
     width: 300px;
     height: auto;
     transition: 1s;
@@ -95,9 +94,6 @@ input[type="number"]::-webkit-outer-spin-button {
     width: auto;
     font-style: monospace;
 }
-aside input, aside label {
-    color: white;
-}
 :not(#inputRastro:checked) .bloco {
     visibility: hidden;
     opacity: 0;
@@ -141,10 +137,27 @@ input[type="color"] {
 .dados {
     width: 100%;
     margin-bottom: 10px;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+.dados label {
+    margin-bottom: -10px;
+    margin-left: 12px;
+    display: block;
+    width: fit-content;
+    position: relative;
+    padding: 0px 5px;
+    background-color: var(--corCinza);
+    color: white;
+    z-index: 1;
+}
+.dados input {
+    height: 50px;
+    width: 100%;
+    border: 2px solid white;
+    color: white;
+    border-radius: 60px;
+    padding: 0px 17px;
 }
 .dadosCores {
     width: 100%;
@@ -226,17 +239,22 @@ input[type="color"] {
     margin-bottom: 20px;
 }
 #valoresText {
+    margin: auto;
     margin-top: 20px;
-    margin-right: 10px;
-    margin-left: auto;
     display: flex;
     gap: 10px;
+}
+#valoresText button {
+    margin: auto;
 }
 #opacidadeFundo {
     appearance: none;
     background-color: transparent;
     width: 150px;
     border-radius: 10px;
+}
+input[type="range"] {
+    width: 80%;
 }
 input[type="range"]::-webkit-slider-runnable-track {
     -webkit-appearance: none;
@@ -272,11 +290,9 @@ main {
     display: flex;
     gap: 10%;
     transition: 1s;
-    container-type: normal;
 }
 #gameplayFatreon {
     width: 70%;
-    border: 3px solid var(--corAzul);
     border-radius: 15px;
     display: block;
     margin: 0 auto;
@@ -321,9 +337,6 @@ p {
     main {
         gap: 5%;
     }
-    .dados {
-        flex-direction: column;
-    }
 }
 @media (max-width: 635px) {
     header {
@@ -333,12 +346,14 @@ p {
     main {
         gap: 2%;
     }
-    .dados {
-        flex-direction: column;
-    }
     #tituloImg {
         margin-top: 15px;
         width: 230px;
+    }
+}
+@media (max-width: 450px) {
+    #valoresText {
+        flex-direction: column;
     }
 }
 
