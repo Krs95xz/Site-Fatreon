@@ -9,7 +9,6 @@ let textos = document.getElementsByClassName("textos");
 const videoGameplay = document.getElementById("gameplayFatreon");
 const aside = document.getElementById("conteudo");
 const asideMouse = document.getElementById("configuracoesMouse");
-const main = document.getElementById("area-principal");
 const sobre = document.getElementById("sobre");
 const principal = document.getElementById("principal");
 
@@ -88,18 +87,21 @@ if (window.innerWidth >= 500) {
     document.getElementById('dia').textContent = `${dia}/${mes+1}/${ano}`;
 }
 window.addEventListener("resize", () => {
-    if (window.innerWidth >= 500) {
+    if (window.innerWidth >= 536) {
         document.getElementById('dia').textContent = `Dia: ${dia} | Mês: ${meses[mes]} | Ano: ${ano}`;
     } else {
         document.getElementById('dia').textContent = `${dia}/${mes+1}/${ano}`;
     }
+    periodo();
+    horario();
+    document.getElementById("diaSem").textContent = diasSem[diaSem];
 });
 function horario() {
     let data_h = new Date()
     let hora_t = String(data_h.getHours()).padStart(2, '0')
     let minuto = String(data_h.getMinutes()).padStart(2, '0')
     let segundo = String(data_h.getSeconds()).padStart(2, '0')
-    if (window.innerWidth >= 500) {
+    if (window.innerWidth >= 536) {
         document.getElementById('hora').textContent = `Horário atual: ${hora_t}:${minuto}:${segundo}`
     } else {
         document.getElementById('hora').textContent = `${hora_t}:${minuto}:${segundo}`
@@ -108,9 +110,9 @@ function horario() {
 horario();
 setInterval(horario, 1000);
 
-function mudar_back() {
+function periodo() {
     let hora_n = data.getHours()
-    if (window.innerWidth >= 500) {
+    if (window.innerWidth >= 536) {
         if (hora_n >= 18) {
             document.getElementById('periodo').textContent = 'Período atual: Noite'
         }
@@ -138,22 +140,21 @@ function mudar_back() {
         }
     }
 }
-mudar_back();
-setInterval(mudar_back, 5000)
+periodo();
+setInterval(periodo, 5000)
 
 function separar(elementos) {
     for (let el of elementos) {
-        const chars = el.textContent.split("");
+        const letras = el.textContent.split("");
 
-        el.innerHTML = chars
-            .map(c => {
-                if (c === " ") return " ";
-                return `<span class="letras">${c}</span>`;
-            })
-            .join("");
+        el.innerHTML = letras.map(c => {
+            if (c === " ") return " ";
+            return `<span class="letras">${c}</span>`;
+        }).join("");
     }
 }
 separar(textos);
+
 function animarLetras() {
     const letras = Array.from(document.getElementsByClassName("letras"));
     letras.forEach((valor, i) => {

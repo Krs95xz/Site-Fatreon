@@ -34,7 +34,6 @@ function executarRastro() {
 
     if (ativaRastro.checked) {
         movendo = true;
-        window.addEventListener("mousemove", onMove);
         window.addEventListener("pointermove", onMove);
 
         intervalo = setInterval(() => {
@@ -42,13 +41,11 @@ function executarRastro() {
         }, 30);
     } else {
         movendo = false;
-        window.removeEventListener("mousemove", onMove);
         window.removeEventListener("pointermove", onMove);
     }
 }
 function desativarRastro() {
     movendo = false;
-    window.removeEventListener("mousemove", onMove);
     window.removeEventListener("pointermove", onMove);
 }
 function tamanho(quant) {
