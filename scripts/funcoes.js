@@ -11,12 +11,17 @@ const aside = document.getElementById("conteudo");
 const asideMouse = document.getElementById("configuracoesMouse");
 const sobre = document.getElementById("sobre");
 const principal = document.getElementById("principal");
+let podeClicar = true;
 
 videoGameplay.addEventListener("play", () => {
     videoGameplay.volume = 0.55;
 });
 
 function abrirTollMouse() {
+    if (!podeClicar) return;
+
+    podeClicar = false;
+
     if (asideMouse.style.opacity >= 1) {
         setTimeout(() => {
             asideMouse.style.display = "none"
@@ -51,6 +56,9 @@ function abrirTollMouse() {
             principal.style.transition = "0.5s"
         }, 100);
     }
+    setTimeout(() => {
+        podeClicar = true;
+    }, 750);
 }
 function fecharTollMouse() {
     setTimeout(() => {

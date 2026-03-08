@@ -182,11 +182,6 @@ input[type="color"] {
 #buttonRastro {
     text-align: center;
 }
-#fechar {
-    display: block;
-    font-size: large;
-    width: 40px;
-}
 #inputRastro {
     appearance: none;
     background-repeat: no-repeat;
