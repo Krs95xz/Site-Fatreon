@@ -92,20 +92,72 @@ input[type="number"]::-webkit-outer-spin-button {
     width: auto;
     font-style: monospace;
 }
-:not(#inputRastro:checked) .bloco {
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.7s;
+.configuracoes.exibido {
+    display: block;
 }
-:has(#inputRastro:checked) .bloco {
-    visibility: visible;
+.configuracoes.visivel {
     opacity: 1;
-    transition: 0.7s;
+}
+
+/* Estados de layout quando a ferramenta do mouse está aberta */
+main.tool-aberto > aside#conteudo {
+    width: 30%;
+}
+main.tool-aberto > #principal {
+    width: 70%;
+}
+@media (max-width: 999px) {
+    main.tool-aberto > aside#conteudo { width: 50%; }
+    main.tool-aberto > #principal { width: 50%; }
+}
+@media (max-width: 599px) {
+    main.tool-aberto {
+        flex-direction: column;
+    }
+    main.tool-aberto > aside#conteudo {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 3px solid var(--corAzul);
+    }
+    main.tool-aberto > #principal {
+        width: 100%;
+        border-radius: 0;
+    }
+    main.tool-aberto #sobre {
+        border-radius: 0;
+    }
+}
+
+/* Estado translúcido do bloco "sobre" (slider de opacidade abaixo do limite) */
+#sobre.translucido {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Pop-up aberto e fundo borrado */
+.popUps.exibido {
+    display: block;
+}
+.popUps.aberto {
+    opacity: 1;
+}
+.borrado {
+    filter: blur(10px);
+}
+#principal.atenuado {
+    opacity: 0.4;
 }
 .bloco {
     margin: auto;
     padding-top: 5px;
     padding-right: 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s;
+}
+.bloco.visivel {
+    visibility: visible;
+    opacity: 1;
 }
 input[type="color"] {
     width: 100%;
@@ -117,10 +169,10 @@ input[type="color"] {
     height: 25px;
     border: 2px solid white;
     cursor: pointer;
-    background: var(--corLaranja);
+    background: var(--cor-escolhida, var(--corLaranja));
 }
-:has(.corOculta:focus) .blocoCores {
-    border: 2px solid var();
+.blocoCores.focado {
+    border: 2px solid var(--corLaranja);
 }
 .ativacao {
     display: flex;

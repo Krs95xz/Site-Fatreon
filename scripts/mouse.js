@@ -2,6 +2,22 @@ let ativaRastro = document.getElementById("inputRastro");
 let corRastro1 = document.getElementById("corRastro1");
 let corRastro2 = document.getElementById("corRastro2");
 let pontos = [];
+
+// Substitui :has(#inputRastro:checked) .bloco / :not(...) .bloco
+const blocosConfig = document.querySelectorAll(".bloco");
+function atualizarBloco() {
+    blocosConfig.forEach(b => b.classList.toggle("visivel", ativaRastro.checked));
+}
+ativaRastro.addEventListener("change", atualizarBloco);
+atualizarBloco();
+
+// Substitui :has(.corOculta:focus) .blocoCores
+document.querySelectorAll(".corOculta").forEach(input => {
+    const bloco = input.closest(".blocoCores");
+    if (!bloco) return;
+    input.addEventListener("focus", () => bloco.classList.add("focado"));
+    input.addEventListener("blur", () => bloco.classList.remove("focado"));
+});
 let xS;
 let yS;
 let i = 0;
@@ -13,11 +29,11 @@ let intervalo = null;
 let movendo = false;
 
 corRastro1.addEventListener("input", () => {
-    document.getElementById("cor1").style.background = corRastro1.value;
+    document.getElementById("cor1").style.setProperty("--cor-escolhida", corRastro1.value);
     gradiente = `linear-gradient(${corRastro1.value}, ${corRastro2.value})`
 });
 corRastro2.addEventListener("input", () => {
-    document.getElementById("cor2").style.background = corRastro2.value;
+    document.getElementById("cor2").style.setProperty("--cor-escolhida", corRastro2.value);
     gradiente = `linear-gradient(${corRastro1.value}, ${corRastro2.value})`
 });
 
@@ -70,7 +86,7 @@ function valores(event) {
     x = event.pageX;
     y = event.pageY;
     for (let k = 0; k < pontos.length; k++) {
-        pontos[k].style.opacity = "1";
+        pontos[k].classList.add("visivel");
     }
 }
 function seguir() {
@@ -85,7 +101,7 @@ function seguir() {
 }
 function parar() {
     for (let j = 0; j < pontos.length; j++) {
-        pontos[j].style.opacity = "0";
+        pontos[j].classList.remove("visivel");
     }
 }
 function colocarRastro(valor) {
