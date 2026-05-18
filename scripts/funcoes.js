@@ -22,38 +22,17 @@ function abrirTollMouse() {
 
     podeClicar = false;
 
-    if (asideMouse.style.opacity >= 1) {
+    if (asideMouse.classList.contains("visivel")) {
+        main.classList.remove("tool-aberto");
+        asideMouse.classList.remove("visivel");
         setTimeout(() => {
-            asideMouse.style.display = "none"
+            asideMouse.classList.remove("exibido");
         }, 500);
-        asideMouse.style.opacity = "0"
-        aside.style.width = "60px"
-        aside.style.borderBottom = "0px"
-        aside.style.borderRight = " 3px solid var(--corAzul)"
-        principal.style.width = "100%"
-        principal.style.transition = "0.5s"
-        main.style.flexDirection = "row"
-        sobre.style.borderRadius = "100px 0px 0px 100px"
     } else {
-        asideMouse.style.display = "block"
+        asideMouse.classList.add("exibido");
         setTimeout(() => {
-            asideMouse.style.opacity = "1"
-            if (window.innerWidth >= 1000) {
-                aside.style.width = "30%"
-                principal.style.width = "70%"
-            } else if (window.innerWidth >= 600) {
-                aside.style.width = "50%"
-                principal.style.width = "50%"
-            } else {
-                main.style.flexDirection = "column"
-                aside.style.borderRight = "0px"
-                aside.style.borderBottom = " 3px solid var(--corAzul)"
-                aside.style.width = "100%"
-                principal.style.width = "100%"
-                principal.style.borderRadius = "0px"
-                sobre.style.borderRadius = "0px"
-            }
-            principal.style.transition = "0.5s"
+            main.classList.add("tool-aberto");
+            asideMouse.classList.add("visivel");
         }, 100);
     }
     setTimeout(() => {
@@ -61,30 +40,19 @@ function abrirTollMouse() {
     }, 750);
 }
 function fecharTollMouse() {
+    main.classList.remove("tool-aberto");
+    asideMouse.classList.remove("visivel");
     setTimeout(() => {
-        asideMouse.style.display = "none"
+        asideMouse.classList.remove("exibido");
     }, 500);
-    main.style.flexDirection = "row"
-    asideMouse.style.opacity = "0"
-    aside.style.width = "60px"
-    aside.style.borderBottom = "0px"
-    aside.style.borderRight = " 3px solid var(--corAzul)"
-    principal.style.width = "100%"
-    principal.style.transition = "0.5s"
-    sobre.style.borderRadius = "100px 0px 0px 100px"
 }
 
 opacidadeFundoSobre = document.getElementById("opacidadeFundo")
 opacidadeFundoSobre.addEventListener("input", (valor) => {
     let fundo = document.getElementById("sobre")
+    // Opacidade vem de um slider (valor contínuo) -> permanece inline
     fundo.style.opacity = valor.target.value
-    if (fundo.style.opacity <= 0.6) {
-        fundo.style.pointerEvents = "none"
-        fundo.style.userSelect = "none"
-    } else {
-        fundo.style.pointerEvents = "auto"
-        fundo.style.userSelect = "auto"
-    }
+    fundo.classList.toggle("translucido", parseFloat(valor.target.value) <= 0.6)
 })
 
 document.getElementById("diaSem").textContent = diasSem[diaSem];

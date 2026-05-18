@@ -5,25 +5,27 @@ const header = document.getElementById("topBar");
 const footer = document.getElementById("footer");
 
 function abrirPopUp() {
-    setTimeout (() => {
-        popUpVideoGameplay.style.opacity = "1";
+    popUpVideoGameplay.classList.add("exibido");
+    setTimeout(() => {
+        popUpVideoGameplay.classList.add("aberto");
         setTimeout(() => {
             videoGameplay.play();
         }, 1000);
     }, 500);
-    popUpVideoGameplay.style.display = "block";
-    principal.style.opacity = 0.4;
-    main.style.filter = "blur(10px)";
-    header.style.filter = "blur(10px)";
-    footer.style.filter = "blur(10px)";
+    principal.classList.add("atenuado");
+    main.classList.add("borrado");
+    header.classList.add("borrado");
+    footer.classList.add("borrado");
 }
 
 function fecharPopUp() {
-    setTimeout (() => {popUpVideoGameplay.style.display = "none";}, 1000);
+    popUpVideoGameplay.classList.remove("aberto");
+    setTimeout(() => {
+        popUpVideoGameplay.classList.remove("exibido");
+    }, 1000);
     videoGameplay.pause();
-    popUpVideoGameplay.style.opacity = "0";
-    principal.style.opacity = 1;
-    main.style.filter = "none";
-    header.style.filter = "none";
-    footer.style.filter = "none";
+    principal.classList.remove("atenuado");
+    main.classList.remove("borrado");
+    header.classList.remove("borrado");
+    footer.classList.remove("borrado");
 }
