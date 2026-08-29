@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import { AboutSection } from './components/AboutSection'
-import { CursorTrail } from './components/CursorTrail'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { TrailSettings } from './components/TrailSettings'
-import { VideoModal } from './components/VideoModal'
+import { AboutSection } from './components/AboutSection/AboutSection'
+import { CursorTrail } from './components/CursorTrail/CursorTrail'
+import { Footer } from './components/Footer/Footer'
+import { Header } from './components/Header/Header'
+import { TrailSettings } from './components/TrailSettings/TrailSettings'
+import { VideoModal } from './components/VideoModal/VideoModal'
 import { useClock } from './hooks/useClock'
 import { useCursorTrail } from './hooks/useCursorTrail'
 import type { TrailSettings as TrailSettingsValue } from './types/site'
-import './App.css'
 
 function App() {
   const { isCompact, now } = useClock()

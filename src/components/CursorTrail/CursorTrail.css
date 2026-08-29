@@ -1,0 +1,17 @@
+.pontos {
+  position: absolute;
+  z-index: 30;
+  color: transparent;
+  font-family: 'Bitcount Prop Single', monospace;
+  font-size: 35px;
+  font-weight: 100;
+  pointer-events: none;
+  user-select: none;
+  background-clip: text !important;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.pontos.visivel {
+  opacity: 1;
+}

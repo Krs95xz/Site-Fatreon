@@ -1,3 +1,6 @@
+import './Header.css'
+import type { HeaderProps } from './HeaderProps.tsx'
+
 const weekdays = [
   'Domingo',
   'Segunda-feira',
@@ -35,11 +38,7 @@ export function Header({
   isBlurred,
   isCompact,
   now,
-}: {
-  isBlurred: boolean
-  isCompact: boolean
-  now: Date
-}) {
+}: HeaderProps) {
   const period = getPeriod(now)
 
   return (

@@ -1,20 +1,6 @@
 import type { CSSProperties } from 'react'
-import type { TrailSettings as TrailSettingsValue } from '../types/site'
-
-type TrailSettingsProps = {
-  colorBottom: string
-  colorTop: string
-  enabled: boolean
-  isOpen: boolean
-  onColorBottomChange: (color: string) => void
-  onColorTopChange: (color: string) => void
-  onEnabledChange: (enabled: boolean) => void
-  onOpenChange: (isOpen: boolean) => void
-  onPauseChange: (isPaused: boolean) => void
-  onSave: () => void
-  onSettingsChange: (settings: TrailSettingsValue) => void
-  settings: TrailSettingsValue
-}
+import type { TrailSettingsProps } from './TrailSettingsProps.tsx'
+import './TrailSettings.css'
 
 export function TrailSettings({
   colorBottom,

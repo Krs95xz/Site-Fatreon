@@ -1,9 +1,5 @@
-type AnimatedTextProps = {
-  activeLetter: number | null
-  as: 'h3' | 'p'
-  content: string
-  startIndex: number
-}
+import './AnimatedText.css'
+import type { AnimatedTextProps } from './AnimatedTextProps.tsx'
 
 export function AnimatedText({
   as: Tag,

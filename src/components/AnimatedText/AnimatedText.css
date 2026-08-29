@@ -1,0 +1,31 @@
+.textos {
+  max-width: 74ch;
+  margin: 0;
+  user-select: none;
+}
+
+h3.textos {
+  color: #172b3d;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p.textos {
+  color: var(--corTextoSuave);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.textos span {
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.letras:hover,
+.animado {
+  color: var(--corLaranjaEscuro);
+  font-weight: 700;
+  transform: translateY(-3px);
+}

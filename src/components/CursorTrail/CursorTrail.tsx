@@ -1,14 +1,11 @@
-import type { TrailPoint } from '../types/site'
+import type { CursorTrailProps } from './CursorTrailProps.tsx'
+import './CursorTrail.css'
 
 export function CursorTrail({
   colorBottom,
   colorTop,
   points,
-}: {
-  colorBottom: string
-  colorTop: string
-  points: TrailPoint[]
-}) {
+}: CursorTrailProps) {
   return points.map((point, index) => (
     <div
       className={`pontos${point.visible ? ' visivel' : ''}`}

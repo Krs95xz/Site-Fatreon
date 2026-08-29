@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
+import type { VideoModalProps } from './VideoModalProps.tsx'
+import './VideoModal.css'
 
-export function VideoModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+export function VideoModal({ isOpen, onClose }: VideoModalProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {

@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single&family=Montserrat:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap');
 
+:root {
+  --corAzul: #4aa3ff;
+  --corAzulEscuro: #1469be;
+  --corLaranja: #ff9b34;
+  --corLaranjaEscuro: #de6e17;
+  --corCinza: #20242a;
+  --corFundo: #111315;
+  --corSuperficie: #e8e7e2;
+  --corTexto: #18212a;
+  --corTextoSuave: #485663;
+  --corBorda: #c8ccd0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -69,5 +82,11 @@ input[type='number']::-webkit-outer-spin-button {
 @media (max-width: 760px) {
   body {
     padding-top: 74px;
+  }
+}
+
+@media (max-width: 599px) {
+  body {
+    padding-top: 0;
   }
 }

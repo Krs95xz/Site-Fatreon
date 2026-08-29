@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { aboutBlocks } from '../data/about'
-import { AnimatedText } from './AnimatedText'
+import { aboutBlocks } from '../../data/about'
+import { AnimatedText } from '../AnimatedText/AnimatedText'
+import type { AboutSectionProps } from './AboutSectionProps.tsx'
+import './AboutSection.css'
 
 const totalLetters = aboutBlocks.reduce(
   (total, block) => total + ('content' in block ? Array.from(block.content).length : 0),
@@ -12,12 +14,7 @@ export function AboutSection({
   onOpenVideo,
   opacity,
   onOpacityChange,
-}: {
-  isDimmed: boolean
-  onOpenVideo: () => void
-  opacity: number
-  onOpacityChange: (opacity: number) => void
-}) {
+}: AboutSectionProps) {
   const [activeLetter, setActiveLetter] = useState<number | null>(null)
   const animationRef = useRef<number | undefined>(undefined)
 
@@ -62,11 +59,7 @@ export function AboutSection({
           Animar
         </button>
       </div>
-      <section
-        className={opacity <= 0.6 ? 'translucido' : ''}
-        id="sobre"
-        style={{ opacity }}
-      >
+      <section className={opacity <= 0.6 ? 'translucido' : ''} id="sobre" style={{ opacity }}>
         {aboutBlocks.map((block, index) => {
           if (block.type === 'rule') return <hr key={index} />
           if (block.type === 'space') return <br key={index} />
