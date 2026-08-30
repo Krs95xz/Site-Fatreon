@@ -119,7 +119,7 @@ export function TrailSettings({
               Salvar
             </button>
           </div>
-          <p id="aviso">Colocar muitos caracteres pode deixar o site lento e pesado.</p>
+          <p id="aviso">Colocar uma quantidade alta de caracteres, pode deixar o site lento e pesado.</p>
         </div>
       </div>
     </aside>

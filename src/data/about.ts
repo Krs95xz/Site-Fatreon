@@ -11,19 +11,19 @@ export const aboutBlocks: ContentBlock[] = [
   {
     type: 'paragraph',
     content:
-      'Gosto muito de programação, explorar e treinar novos modos de desenvolver um código, jogar jogos, assistir anime e ouvir música geek.',
+      'Gosto muito de programação, jogar jogos, assistir anime e ouvir música.',
   },
   { type: 'rule' },
   {
     type: 'paragraph',
     content:
-      'Sempre tive vontade de querer fazer jogos, mas não sabia programar, nem sabia de lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity, que disponibiliza apenas C# como linguagem de programação, mas eram muito complexas algumas funções e interfaces da Engine. O lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.',
+      'Sempre tive vontade de fazer jogos, mas não sabia programar, nem sabia de lógica de programação. Antes de entrar na Germinare tentei fazer um jogo na Unity, que disponibiliza apenas C# como linguagem de programação, mas era muito complexo algumas funções e interfaces da Engine. O lado positivo foi o aprendizado de comportamentos básicos de componentes de um jogo.',
   },
   { type: 'rule' },
   {
     type: 'paragraph',
     content:
-      'No curso de Python da Germinare, aprendi a lógica de programação, o que ajudou a otimizar alguns códigos do jogo. Depois disso parei de utilizar a Unity e mudei para o GameMaker, que tem uma linguagem de programação própria, com ferramentas que facilitam o uso e estão em português. A linguagem é parecida com a combinação de JavaScript com Python.',
+      'No curso de Python da Germinare, aprendi a lógica de programação, o que ajudou a otimizar alguns códigos do jogo. Depois disso parei de utilizar a Unity e mudei para o GameMaker, que tem uma linguagem de programação própria, bem parecido com JS, com ferramentas que facilitam o uso, além de estar em português.',
   },
   { type: 'rule' },
   { type: 'space' },
@@ -31,11 +31,11 @@ export const aboutBlocks: ContentBlock[] = [
   {
     type: 'paragraph',
     content:
-      'O jogo é estilo plataforma 2D, em pixel art, com mecânicas de andar, pular, dash e correr.',
+      'O jogo é estilo plataforma 2D, em pixel art, inspirado em alguns jogos de plataforma, mas que ainda está em refinamento qual será as principais mecânicas.',
   },
   {
     type: 'paragraph',
     content:
-      'Até a presente data de 16/05/2026, o projeto está em desenvolvimento.\nSendo por enquanto um teste, mas se o desenvolvimento for algo grande e promissor, possa ser algo oficial para se lançar como jogo.\nGameplay de 17/01/2026.',
+      'Até a presente data de 30/08/2026, o projeto está em desenvolvimento.\nSendo por enquanto um teste, mas se o desenvolvimento for algo grande e promissor, possa ser algo oficial para se lançar como jogo.\nGameplay de 17/01/2026.',
   },
 ]
