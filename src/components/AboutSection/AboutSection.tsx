@@ -61,7 +61,7 @@ export function AboutSection({
       </div>
       <section className={opacity <= 0.6 ? 'translucido' : ''} id="sobre" style={{ opacity }}>
         {aboutBlocks.map((block, index) => {
-          if (block.type === 'rule') return <hr key={index} />
+          if (block.type === 'row') return <hr key={index} />
           if (block.type === 'space') return <br key={index} />
           if (!('content' in block)) return null
 

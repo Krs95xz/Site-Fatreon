@@ -1,6 +1,6 @@
 export type ContentBlock =
   | { type: 'heading' | 'paragraph'; content: string }
-  | { type: 'rule' | 'space' }
+  | { type: 'row' | 'space' }
 
 export type TrailPoint = {
   character: string
